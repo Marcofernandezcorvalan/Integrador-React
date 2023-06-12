@@ -49,7 +49,7 @@ const Navbar = () => {
 	return (
 		<>
 			<NavbarStyled>
-				<ImgStyled src="../../../public/Nvidia-logo1.png" alt="Nvidia Logo" />
+				<ImgStyled src="../../../public/LogoNvidiaTransp.png" alt="Nvidia Logo" />
 				<LinkContainer>
 					<NavLinkStyled to="/">Home</NavLinkStyled>
 					<NavLinkStyled to="/login">Login</NavLinkStyled>

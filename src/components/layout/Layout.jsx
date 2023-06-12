@@ -37,7 +37,7 @@ const Layout = ({ children }) => {
 				<Navbar />
 				<ContentContainer>{children}</ContentContainer>
 				<FooterSyled>
-					<ImgStyled src="../../../public/Nvidia-logo1.png" alt="Nvidia Logo" />
+					<ImgStyled src="../../../public/LogoNvidiaTransp.png" alt="Nvidia Logo" />
 					<p>Copyright © 2022 NVIDIA Corporation</p>
 					<UlStlyed>
 						<li>Terminos y Condiciones</li>
