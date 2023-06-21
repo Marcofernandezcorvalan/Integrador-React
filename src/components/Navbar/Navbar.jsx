@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { keyframes, styled } from "styled-components";
+import logo from "../../assets/img/LogoNvidiaTransp.png";
 
 export const zoomAnimation = keyframes`
 
@@ -49,7 +50,7 @@ const Navbar = () => {
 	return (
 		<>
 			<NavbarStyled>
-				<ImgStyled src="../../../public/LogoNvidiaTransp.png" alt="Nvidia Logo" />
+				<ImgStyled src={logo} alt="Nvidia Logo" />
 				<LinkContainer>
 					<NavLinkStyled to="/">Home</NavLinkStyled>
 					<NavLinkStyled to="/login">Login</NavLinkStyled>

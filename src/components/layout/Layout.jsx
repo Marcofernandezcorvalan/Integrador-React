@@ -2,13 +2,14 @@ import React from "react";
 import { LayoutStyled } from "./LayoutStyled";
 import styled from "styled-components";
 import Navbar, { ImgStyled } from "../Navbar/Navbar";
+import logo from "../../assets/img/LogoNvidiaTransp.png";
 
 export const ContentContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	height: calc(100vh - 120px);
+	/* height: calc(100vh - 120px); */
 	width: 100%;
 `;
 
@@ -37,7 +38,7 @@ const Layout = ({ children }) => {
 				<Navbar />
 				<ContentContainer>{children}</ContentContainer>
 				<FooterSyled>
-					<ImgStyled src="../../../public/LogoNvidiaTransp.png" alt="Nvidia Logo" />
+					<ImgStyled src={logo} alt="Nvidia Logo" />
 					<p>Copyright © 2022 NVIDIA Corporation</p>
 					<UlStlyed>
 						<li>Terminos y Condiciones</li>
