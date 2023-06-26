@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { LayoutStyled } from "./LayoutStyled";
 import styled from "styled-components";
 import Navbar, { ImgStyled } from "../Navbar/Navbar";
 import logo from "../../assets/img/LogoNvidiaTransp.png";
+import { useLocation } from "react-router-dom";
 
 export const ContentContainer = styled.div`
 	display: flex;
@@ -32,6 +33,12 @@ export const UlStlyed = styled.ul`
 `;
 
 const Layout = ({ children }) => {
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
 	return (
 		<>
 			<LayoutStyled>

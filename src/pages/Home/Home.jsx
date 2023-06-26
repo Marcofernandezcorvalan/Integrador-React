@@ -5,22 +5,31 @@ import {
 	BenefitsCardTitle,
 	BenefitsCont,
 	BenefitsContCards,
+	BenefitsTitle,
 	HeroContainer,
 	HeroImg,
+	Products,
+	ProductsCategoriesCont,
+	ProductsCategory,
+	ProductsContainer,
+	ProductsTitle,
 } from "./HomeStyled";
 import Portada from "../../assets/img/rtx-portada.jpg";
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { CiBookmarkCheck } from "react-icons/ci";
 import { FaRegStar } from "react-icons/fa";
+import ProductCard from "../../components/Productos/ProductCard";
 
 const Home = () => {
 	return (
 		<>
+			{/* Hero */}
 			<HeroContainer>
 				<HeroImg src={Portada} alt="rtx portada" />
 			</HeroContainer>
+			{/* Benefits */}
 			<Benefits>
-				<h2 style={{ fontSize: "32px" }}>Beneficios</h2>
+				<BenefitsTitle>Beneficios</BenefitsTitle>
 				<BenefitsCont>
 					<BenefitsContCards>
 						<BenefitsCardTitle>
@@ -56,6 +65,26 @@ const Home = () => {
 					</BenefitsContCards>
 				</BenefitsCont>
 			</Benefits>
+			{/* Products  */}
+			<Products>
+				<ProductsTitle>Productos</ProductsTitle>
+				<ProductsCategoriesCont>
+					<ProductsCategory className="active">All</ProductsCategory>
+					<ProductsCategory>Expensive</ProductsCategory>
+					<ProductsCategory>Accessible</ProductsCategory>
+					<ProductsCategory>Economic</ProductsCategory>
+				</ProductsCategoriesCont>
+				<ProductsContainer>
+					<ProductCard></ProductCard>
+					<ProductCard></ProductCard>
+					<ProductCard></ProductCard>
+					<ProductCard></ProductCard>
+					<ProductCard></ProductCard>
+					<ProductCard></ProductCard>
+					<ProductCard></ProductCard>
+					<ProductCard></ProductCard>
+				</ProductsContainer>
+			</Products>
 		</>
 	);
 };
