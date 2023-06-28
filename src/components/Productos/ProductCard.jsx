@@ -8,14 +8,14 @@ import {
 	ProductsContCards,
 } from "./ProductCardStyles";
 
-const ProductCard = () => {
+const ProductCard = ({ img, name, precio }) => {
 	return (
 		<>
 			<ProductsContCards>
-				<ProductsCardsImg src="../../assets/img/rtx4090.jpg" />
-				<ProductsCardTitle>Rtx4090</ProductsCardTitle>
+				<ProductsCardsImg src={img} alt={name} />
+				<ProductsCardTitle>{name}</ProductsCardTitle>
 				<ProductsCardSecondCont>
-					<ProductsCardP>U$D 1800</ProductsCardP>
+					<ProductsCardP>U$D {precio}</ProductsCardP>
 					<ProductsCardButton>Buy</ProductsCardButton>
 				</ProductsCardSecondCont>
 			</ProductsContCards>

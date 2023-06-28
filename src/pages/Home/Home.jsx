@@ -11,14 +11,15 @@ import {
 	Products,
 	ProductsCategoriesCont,
 	ProductsCategory,
-	ProductsContainer,
 	ProductsTitle,
 } from "./HomeStyled";
 import Portada from "../../assets/img/rtx-portada.jpg";
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { CiBookmarkCheck } from "react-icons/ci";
 import { FaRegStar } from "react-icons/fa";
-import ProductCard from "../../components/Productos/ProductCard";
+import ProductsSection from "../../components/Productos/ProductsSection";
+import ContactUs from "../../components/ContactUs/ContactUs";
+import ProductsCategories from "../../components/Productos/ProductsCategories";
 
 const Home = () => {
 	return (
@@ -68,23 +69,11 @@ const Home = () => {
 			{/* Products  */}
 			<Products>
 				<ProductsTitle>Productos</ProductsTitle>
-				<ProductsCategoriesCont>
-					<ProductsCategory className="active">All</ProductsCategory>
-					<ProductsCategory>Expensive</ProductsCategory>
-					<ProductsCategory>Accessible</ProductsCategory>
-					<ProductsCategory>Economic</ProductsCategory>
-				</ProductsCategoriesCont>
-				<ProductsContainer>
-					<ProductCard></ProductCard>
-					<ProductCard></ProductCard>
-					<ProductCard></ProductCard>
-					<ProductCard></ProductCard>
-					<ProductCard></ProductCard>
-					<ProductCard></ProductCard>
-					<ProductCard></ProductCard>
-					<ProductCard></ProductCard>
-				</ProductsContainer>
+				<ProductsCategories />
+				<ProductsSection />
 			</Products>
+			{/* ContactUs */}
+			<ContactUs />
 		</>
 	);
 };

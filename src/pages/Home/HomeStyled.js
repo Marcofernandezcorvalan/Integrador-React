@@ -116,12 +116,3 @@ export const ProductsCategory = styled.button`
 	cursor: pointer;
 	transition: all 0.3s ease;
 `;
-
-export const ProductsContainer = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-wrap: wrap;
-	width: 95%;
-	gap: 20px;
-`;
