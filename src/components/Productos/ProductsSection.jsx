@@ -27,9 +27,9 @@ const ProductsSection = () => {
 	return (
 		<>
 			<ProductsContainer>
-				{Object.entries(productos).map(([, products]) => {
-					return products?.map((producto) => {
-						return <ProductCard {...producto} key={producto.id} />;
+				{Object.entries(productos).map(([, graf]) => {
+					return graf?.map((prod) => {
+						return <ProductCard {...prod} key={prod.id} />;
 					});
 				})}
 			</ProductsContainer>
