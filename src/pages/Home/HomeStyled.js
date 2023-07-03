@@ -8,13 +8,14 @@ export const HeroContainer = styled.section`
 	height: 410px;
 	margin-top: 80px;
 	margin-bottom: 100px;
-	max-width: 1200px;
+	max-width: 1300px;
 	padding: 10px;
 	border-radius: 10px;
 `;
 
 export const HeroImg = styled.img`
-	height: 110%;
+	/* height: 110%; */
+	width: 75%;
 	border-radius: 10px;
 `;
 // Benefits
@@ -41,6 +42,7 @@ export const BenefitsCont = styled.div`
 	align-items: center;
 	gap: 50px;
 	width: 95%;
+	max-width: 1300px;
 `;
 
 export const BenefitsContCards = styled.div`

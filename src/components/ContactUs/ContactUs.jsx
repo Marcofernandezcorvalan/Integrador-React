@@ -28,6 +28,7 @@ export const ContactUsContainer = styled.div`
 	padding: 20px;
 	border-radius: 10px;
 	gap: 50px;
+	max-width: 1300px;
 `;
 export const ContactUsImg = styled.img`
 	border-radius: 10px;

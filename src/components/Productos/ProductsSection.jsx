@@ -11,6 +11,7 @@ export const ProductsContainer = styled.div`
 	flex-wrap: wrap;
 	width: 95%;
 	gap: 20px;
+	max-width: 1300px;
 `;
 
 const ProductsSection = () => {
