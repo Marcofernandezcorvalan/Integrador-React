@@ -14,16 +14,19 @@ export const ProductsContainer = styled.div`
 `;
 
 const ProductsSection = () => {
-	let Products = useSelector((state) => state.products.products);
+	let Products = useSelector((state) => state.products);
 
 	return (
 		<>
 			<ProductsContainer>
 				{Object.entries(Products).map(([, products]) => {
-					console.log(Products);
-					return products.map((product) => {
-						return <ProductCard {...product} key={product.id} />;
-					});
+					// console.log(Products);
+					return Array.isArray(products)
+						? products.map((product) => {
+								console.log(product);
+								return <ProductCard {...product} key={product.id} />;
+						  })
+						: null;
 				})}
 			</ProductsContainer>
 		</>
