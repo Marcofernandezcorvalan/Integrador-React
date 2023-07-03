@@ -1,9 +1,9 @@
 export const Categories = [
-	{
-		id: 1,
-		title: "All",
-		category: "All",
-	},
+	// {
+	// 	id: 1,
+	// 	title: "All",
+	// 	category: "All",
+	// },
 	{
 		id: 2,
 		title: "Expensive",

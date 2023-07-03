@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { pickCategory } from "../../Redux/categories/categoriesSlice";
 
 export const CategoryButton = styled.div`
 	display: flex;
@@ -15,16 +17,23 @@ export const CategoryButton = styled.div`
 	border: none;
 	cursor: pointer;
 	transition: all 0.3s ease;
+	background-color: ${({ pick }) => (pick ? "var(--thirdtext)" : "var(--secondbackground)")};
+	color: ${({ pick }) => (pick ? "var(--secondbackground)" : "var(--thirdtext)")};
 `;
 
 export const CategoryTitle = styled.h4`
 	font-size: 15px;
 `;
 
-const Category = ({ title }) => {
+const Category = ({ title, category }) => {
+	const pickedCategory = useSelector((state) => state.categories.pickedCategory);
+	const dispatch = useDispatch();
+
 	return (
 		<>
-			<CategoryButton>{title}</CategoryButton>
+			<CategoryButton pick={category === pickedCategory} onClick={() => dispatch(pickCategory(category))}>
+				{title}
+			</CategoryButton>
 		</>
 	);
 };

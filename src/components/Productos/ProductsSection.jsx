@@ -15,19 +15,22 @@ export const ProductsContainer = styled.div`
 `;
 
 const ProductsSection = () => {
-	let Products = useSelector((state) => state.products);
+	let productos = useSelector((state) => state.products.products);
+	const pickedCategory = useSelector((state) => state.categories.pickedCategory);
+
+	if (pickedCategory) {
+		productos = {
+			[pickedCategory]: productos[pickedCategory],
+		};
+	}
 
 	return (
 		<>
 			<ProductsContainer>
-				{Object.entries(Products).map(([, products]) => {
-					// console.log(Products);
-					return Array.isArray(products)
-						? products.map((product) => {
-								console.log(product);
-								return <ProductCard {...product} key={product.id} />;
-						  })
-						: null;
+				{Object.entries(productos).map(([, products]) => {
+					return products?.map((producto) => {
+						return <ProductCard {...producto} key={producto.id} />;
+					});
 				})}
 			</ProductsContainer>
 		</>

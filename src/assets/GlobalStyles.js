@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
     --background: #0d0d0d;
     --secondbackground: #1f1f1f;
     --text: #fff;
-     --secondarytext: #76b900;
+    --secondarytext: #76b900;
     --thirdtext: #9bd23d;
     }
 
