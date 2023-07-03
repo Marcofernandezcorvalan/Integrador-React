@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import ProductCard from "./ProductCard";
-import { Products } from "../../data/productsData";
+import { useSelector } from "react-redux";
+// import { Products } from "../../data/productsData";
 
 export const ProductsContainer = styled.div`
 	display: flex;
@@ -13,11 +14,14 @@ export const ProductsContainer = styled.div`
 `;
 
 const ProductsSection = () => {
+	let Products = useSelector((state) => state.products.products);
+
 	return (
 		<>
 			<ProductsContainer>
-				{Object.entries(Products).map(([, productos]) => {
-					return productos.map((product) => {
+				{Object.entries(Products).map(([, products]) => {
+					console.log(Products);
+					return products.map((product) => {
 						return <ProductCard {...product} key={product.id} />;
 					});
 				})}

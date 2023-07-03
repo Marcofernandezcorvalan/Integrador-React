@@ -1,4 +1,4 @@
-const infoProducts = [
+export const infoProducts = [
 	{
 		id: 1,
 		name: "GeForce RTX 4090",

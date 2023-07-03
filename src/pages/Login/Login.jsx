@@ -58,14 +58,18 @@ export const LoginFormButton = styled.button`
 	}
 `;
 
+export const TitleGen = styled.h3`
+	font-size: 32px;
+`;
+
 const Login = () => {
 	return (
 		<>
 			<LoginCont onClick={(e) => e.preventDefault}>
-				<h3 style={{ fontSize: "32px" }}>Wellcome Back</h3>
+				<TitleGen>Wellcome Back</TitleGen>
 				<LoginForm>
-					<LoginFormInput type="text" placeholder="Email" />
-					<LoginFormInput type="text" placeholder="Password" />
+					<LoginFormInput type="email" placeholder="Email" />
+					<LoginFormInput type="password" placeholder="Password" />
 					<LoginFormButton onClick={(e) => e.preventDefault}>Login</LoginFormButton>
 				</LoginForm>
 			</LoginCont>

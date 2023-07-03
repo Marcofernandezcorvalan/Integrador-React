@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import Category from "./Category";
 
 export const ProductsCategoriesCont = styled.div`
 	display: flex;
@@ -33,13 +35,18 @@ export const ProductsCategory = styled.button`
 `;
 
 const ProductsCategories = () => {
+	const categories = useSelector((state) => state.categories.categories);
+
 	return (
 		<>
 			<ProductsCategoriesCont>
-				<ProductsCategory className="active">All</ProductsCategory>
+				{categories.map((category) => {
+					return <Category {...category} key={category.id} />;
+				})}
+				{/* <ProductsCategory className="active">All</ProductsCategory>
 				<ProductsCategory>Expensive</ProductsCategory>
 				<ProductsCategory>Accessible</ProductsCategory>
-				<ProductsCategory>Economic</ProductsCategory>
+				<ProductsCategory>Economic</ProductsCategory> */}
 			</ProductsCategoriesCont>
 		</>
 	);

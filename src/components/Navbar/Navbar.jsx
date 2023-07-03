@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { keyframes, styled } from "styled-components";
 import logo from "../../assets/img/LogoNvidiaTransp.png";
+import { BsCart2 } from "react-icons/bs";
 
 export const zoomAnimation = keyframes`
 
@@ -34,6 +35,7 @@ export const ImgStyled = styled.img`
 
 export const LinkContainer = styled.ul`
 	display: flex;
+	align-items: center;
 	gap: 30px;
 `;
 
@@ -46,16 +48,26 @@ export const NavLinkStyled = styled(NavLink)`
 	}
 `;
 
+export const NavbarCont = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+`;
+
 const Navbar = () => {
 	return (
 		<>
 			<NavbarStyled>
 				<ImgStyled src={logo} alt="Nvidia Logo" />
-				<LinkContainer>
-					<NavLinkStyled to="/">Home</NavLinkStyled>
-					<NavLinkStyled to="/login">Login</NavLinkStyled>
-					<NavLinkStyled to="/register">Register</NavLinkStyled>
-				</LinkContainer>
+				<NavbarCont>
+					<LinkContainer>
+						<NavLinkStyled to="/">Home</NavLinkStyled>
+						<NavLinkStyled to="/login">Login</NavLinkStyled>
+						<NavLinkStyled to="/register">Register</NavLinkStyled>
+					</LinkContainer>
+					<BsCart2 />
+				</NavbarCont>
 			</NavbarStyled>
 		</>
 	);
