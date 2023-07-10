@@ -6,7 +6,7 @@ export const HeroContainer = styled.section`
 	align-items: center;
 	width: 100%;
 	height: 410px;
-	margin-top: 80px;
+	margin-top: 120px;
 	margin-bottom: 100px;
 	max-width: 1300px;
 	padding: 10px;

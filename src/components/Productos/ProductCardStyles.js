@@ -12,9 +12,11 @@ export const ProductsContCards = styled.div`
 	border-radius: 10px;
 	padding: 5px;
 	transition: all 0.3s ease;
+
 	&:hover {
 		transition: all 0.3s ease;
 		transform: scale(1.1);
+		/* z-index: 0; */
 	}
 `;
 

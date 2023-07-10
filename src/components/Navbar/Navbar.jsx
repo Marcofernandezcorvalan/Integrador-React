@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { keyframes, styled } from "styled-components";
 import logo from "../../assets/img/LogoNvidiaTransp.png";
-import { BsCart2 } from "react-icons/bs";
+import CartIcon from "./carrito/CartIcon";
+import Carrito from "./carrito/Carrito";
 
 export const zoomAnimation = keyframes`
 
@@ -27,6 +28,10 @@ export const NavbarStyled = styled.header`
 	align-items: center;
 	padding: 30px 50px;
 	gap: 30px;
+	top: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
 `;
 export const ImgStyled = styled.img`
 	height: 30px;
@@ -66,7 +71,8 @@ const Navbar = () => {
 						<NavLinkStyled to="/login">Login</NavLinkStyled>
 						<NavLinkStyled to="/register">Register</NavLinkStyled>
 					</LinkContainer>
-					<BsCart2 />
+					<CartIcon />
+					<Carrito />
 				</NavbarCont>
 			</NavbarStyled>
 		</>
