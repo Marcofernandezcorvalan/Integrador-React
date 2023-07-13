@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Layout from "../components/layout/Layout";
+import FormCompra from "../pages/FormCompra/FormCompra";
 
 const Routes = () => {
 	return (
@@ -14,6 +15,7 @@ const Routes = () => {
 						<Route path="/" element={<Home />} />
 						<Route path="login" element={<Login />} />
 						<Route path="register" element={<Register />} />
+						<Route path="ConfirmarCompra" element={<FormCompra />} />
 					</ReactDomRoutes>
 				</Layout>
 			</BrowserRouter>

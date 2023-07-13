@@ -23,10 +23,10 @@ export const CarritoCont = styled.div`
 
 export const CarritoTitle = styled.h2`
 	color: var(--thirdtext);
-	font-size: 20px;
+	font-size: 22px;
 	font-weight: 800;
 	text-align: center;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 `;
 
 export const CarritoCardsCont = styled.div`
@@ -45,9 +45,7 @@ export const Divider = styled.span`
 export const CarritoTotal = styled.div`
 	display: flex;
 	align-self: flex-end;
-	& p {
-		font-weight: 800;
-	}
+	font-weight: 700;
 `;
 
 export const ButtonCart = styled.button`
@@ -65,5 +63,9 @@ export const ButtonCart = styled.button`
 	&:hover {
 		transform: scale(1.05);
 		transition: all 0.3s ease;
+	}
+	&:disabled {
+		cursor: not-allowed;
+		color: rgba(255, 58, 58, 0.328);
 	}
 `;
