@@ -1,6 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
+export const ContGeneral = styled.div`
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+`;
+
 export const LoginCont = styled.div`
 	display: flex;
 	justify-content: center;
@@ -65,14 +73,16 @@ export const TitleGen = styled.h3`
 const Login = () => {
 	return (
 		<>
-			<LoginCont onClick={(e) => e.preventDefault}>
-				<TitleGen>Wellcome Back</TitleGen>
-				<LoginForm>
-					<LoginFormInput type="email" placeholder="Email" />
-					<LoginFormInput type="password" placeholder="Password" />
-					<LoginFormButton onClick={(e) => e.preventDefault}>Login</LoginFormButton>
-				</LoginForm>
-			</LoginCont>
+			<ContGeneral>
+				<LoginCont>
+					<TitleGen>Wellcome Back</TitleGen>
+					<LoginForm onClick={(e) => e.preventDefault}>
+						<LoginFormInput type="email" placeholder="Email" />
+						<LoginFormInput type="password" placeholder="Password" />
+						<LoginFormButton onClick={(e) => e.preventDefault}>Login</LoginFormButton>
+					</LoginForm>
+				</LoginCont>
+			</ContGeneral>
 		</>
 	);
 };

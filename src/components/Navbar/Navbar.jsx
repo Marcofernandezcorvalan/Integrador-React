@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { keyframes, styled } from "styled-components";
 import logo from "../../assets/img/LogoNvidiaTransp.png";
 import CartIcon from "./carrito/CartIcon";
@@ -36,6 +36,7 @@ export const NavbarStyled = styled.header`
 export const ImgStyled = styled.img`
 	height: 30px;
 	animation: ${zoomAnimation} 3s infinite;
+	cursor: pointer;
 `;
 
 export const LinkContainer = styled.ul`
@@ -61,10 +62,11 @@ export const NavbarCont = styled.div`
 `;
 
 const Navbar = () => {
+	const navigate = useNavigate();
 	return (
 		<>
 			<NavbarStyled>
-				<ImgStyled src={logo} alt="Nvidia Logo" />
+				<ImgStyled src={logo} alt="Nvidia Logo" onClick={() => navigate("/")} />
 				<NavbarCont>
 					<LinkContainer>
 						<NavLinkStyled to="/">Home</NavLinkStyled>

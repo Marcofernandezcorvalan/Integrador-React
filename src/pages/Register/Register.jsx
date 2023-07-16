@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LoginFormButton, LoginFormInput, TitleGen } from "../Login/Login";
+import { ContGeneral, LoginFormButton, LoginFormInput, TitleGen } from "../Login/Login";
 
 export const RegisterCont = styled.div`
 	display: flex;
@@ -32,14 +32,16 @@ export const RegisterForm = styled.form`
 const Register = () => {
 	return (
 		<>
-			<RegisterCont>
-				<TitleGen>Sign Up</TitleGen>
-				<RegisterForm>
-					<LoginFormInput type="email" placeholder="Email" />
-					<LoginFormInput type="password" placeholder="Password" />
-					<LoginFormButton>Sign Up</LoginFormButton>
-				</RegisterForm>
-			</RegisterCont>
+			<ContGeneral>
+				<RegisterCont>
+					<TitleGen>Sign Up</TitleGen>
+					<RegisterForm>
+						<LoginFormInput type="email" placeholder="Email" />
+						<LoginFormInput type="password" placeholder="Password" />
+						<LoginFormButton>Sign Up</LoginFormButton>
+					</RegisterForm>
+				</RegisterCont>
+			</ContGeneral>
 		</>
 	);
 };

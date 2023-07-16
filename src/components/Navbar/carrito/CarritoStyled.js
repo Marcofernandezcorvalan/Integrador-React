@@ -23,10 +23,10 @@ export const CarritoCont = styled.div`
 
 export const CarritoTitle = styled.h2`
 	color: var(--thirdtext);
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: 800;
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 `;
 
 export const CarritoCardsCont = styled.div`
@@ -45,7 +45,7 @@ export const Divider = styled.span`
 export const CarritoTotal = styled.div`
 	display: flex;
 	align-self: flex-end;
-	font-weight: 700;
+	font-weight: 600;
 `;
 
 export const ButtonCart = styled.button`
