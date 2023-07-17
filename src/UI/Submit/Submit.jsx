@@ -19,12 +19,17 @@ export const SubmitStyled = styled.button`
 		border: none;
 		cursor: pointer;
 	}
+	&:disabled {
+		cursor: not-allowed;
+		background-color: #1f1f1f;
+		color: rgba(255, 58, 58, 0.328);
+	}
 `;
 
-const Submit = ({ children, onClick }) => {
+const Submit = ({ children, onClick, disabled }) => {
 	return (
 		<>
-			<SubmitStyled type="submit" onClick={onClick}>
+			<SubmitStyled type="submit" onClick={onClick} disabled={disabled}>
 				{children}
 			</SubmitStyled>
 		</>

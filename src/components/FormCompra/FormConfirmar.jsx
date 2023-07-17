@@ -20,9 +20,9 @@ export const ContainerFormConfirmar = styled.div`
 `;
 
 export const TitleConfirm = styled.h2`
-	font-size: 17px;
+	font-size: 23px;
 	font-weight: 700;
-	width: 100%;
+	color: #8bbe33ef;
 	margin-bottom: 30px;
 `;
 
@@ -60,23 +60,48 @@ const FormConfirmar = ({ cartItems }) => {
 						validationSchema={checkoutValidationSchema}
 						onSubmit={(values) => console.log(values)}
 					>
-						<Form>
-							<Input htmlFor="nombre" type="text" id="name" placeholder="Su Nombre" name="name">
-								Nombre:
-							</Input>
-							<Input htmlFor="celular" type="text" id="celular" placeholder="Número Personal" name="cellphone">
-								Celular:
-							</Input>
-							<Input htmlFor="localidad" type="text" id="localidad" placeholder="Su Localidad" name="location">
-								Localidad:
-							</Input>
-							<Input htmlFor="direccion" type="text" id="direccion" placeholder="Su Dirección" name="address">
-								Dirección:
-							</Input>
-							<ButtonContainer>
-								<Submit onClick={() => navigate("/Congrats")}>Confirmar</Submit>
-							</ButtonContainer>
-						</Form>
+						{({ errors }) => (
+							<Form>
+								<Input isError={errors.name} htmlFor="nombre" type="text" id="name" placeholder="Su Nombre" name="name">
+									Nombre:
+								</Input>
+								<Input
+									isError={errors.cellphone}
+									htmlFor="celular"
+									type="text"
+									id="celular"
+									placeholder="Número Personal"
+									name="cellphone"
+								>
+									Celular:
+								</Input>
+								<Input
+									isError={errors.location}
+									htmlFor="localidad"
+									type="text"
+									id="localidad"
+									placeholder="Su Localidad"
+									name="location"
+								>
+									Localidad:
+								</Input>
+								<Input
+									isError={errors.address}
+									htmlFor="direccion"
+									type="text"
+									id="direccion"
+									placeholder="Su Dirección"
+									name="address"
+								>
+									Dirección:
+								</Input>
+								<ButtonContainer>
+									<Submit disabled={!cartItems.length} onClick={(isSubmiting) => navigate("/Congrats")}>
+										Confirmar
+									</Submit>
+								</ButtonContainer>
+							</Form>
+						)}
 					</Formik>
 				</ContainerFormConfirmar>
 			</ContGeneral>
