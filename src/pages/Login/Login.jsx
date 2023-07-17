@@ -1,5 +1,11 @@
+import { Formik, Form as FormikForm } from "formik";
 import React from "react";
 import styled from "styled-components";
+import Input from "../../UI/Input/Input";
+import Submit from "../../UI/Submit/Submit";
+import { LogRegInitialValues } from "../../Formik/initialValues";
+import { LogRegValidationSchema } from "../../Formik/validationSchema";
+import { useNavigate } from "react-router-dom";
 
 export const ContGeneral = styled.div`
 	height: 100vh;
@@ -15,7 +21,7 @@ export const LoginCont = styled.div`
 	align-items: center;
 	flex-direction: column;
 	width: 400px;
-	height: 450px;
+	height: 400px;
 	background: var(--secondbackground);
 	margin-top: 80px;
 	margin-bottom: 100px;
@@ -24,15 +30,15 @@ export const LoginCont = styled.div`
 	padding: 10px;
 `;
 
-export const LoginForm = styled.form`
+export const Form = styled(FormikForm)`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	gap: 20px;
+
 	background: var(--background);
 	border-radius: 10px;
-	height: 65%;
+	height: 60%;
 	width: 80%;
 `;
 
@@ -47,7 +53,7 @@ export const LoginFormInput = styled.input`
 `;
 
 export const LoginFormButton = styled.button`
-	margin-top: 35px;
+	margin-top: 20px;
 	color: var(--background);
 	background-color: #76b900;
 	padding: 5px 10px 5px 10px;
@@ -71,16 +77,27 @@ export const TitleGen = styled.h3`
 `;
 
 const Login = () => {
+	const navigate = useNavigate();
 	return (
 		<>
 			<ContGeneral>
 				<LoginCont>
-					<TitleGen>Wellcome Back</TitleGen>
-					<LoginForm onClick={(e) => e.preventDefault}>
-						<LoginFormInput type="email" placeholder="Email" />
-						<LoginFormInput type="password" placeholder="Password" />
-						<LoginFormButton onClick={(e) => e.preventDefault}>Login</LoginFormButton>
-					</LoginForm>
+					<TitleGen>Welcome Back</TitleGen>
+					<Formik
+						initialValues={LogRegInitialValues}
+						validationSchema={LogRegValidationSchema}
+						onSubmit={() => {
+							navigate("/");
+						}}
+					>
+						{(errors) => (
+							<Form>
+								<Input isError={errors.email} placeholder="email" name="email" type="text" />
+								<Input isError={errors.password} placeholder="password" name="password" type="password" />
+								<Submit>Login</Submit>
+							</Form>
+						)}
+					</Formik>
 				</LoginCont>
 			</ContGeneral>
 		</>

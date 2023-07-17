@@ -7,8 +7,7 @@ export const Container = styled.div`
 	flex-direction: Column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	padding: 10px;
-	gap: 10px;
+	padding: 5px;
 `;
 export const Label = styled.label`
 	display: flex;
@@ -34,7 +33,7 @@ export const InputStyled = styled.input`
 	background: var(--secondbackground);
 	color: var(--text);
 	transition: all 0.3s ease;
-	width: 80%;
+	width: 100%;
 	border: ${({ error }) => (error ? "1px solid #ff00008b" : "none")};
 `;
 

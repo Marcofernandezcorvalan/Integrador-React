@@ -5,6 +5,10 @@ import { BsInstagram } from "react-icons/bs";
 import { AiOutlineFacebook } from "react-icons/ai";
 import { LuTwitter } from "react-icons/lu";
 import { ProductsCardButton } from "../Productos/ProductCardStyles";
+import Input from "../../UI/Input/Input";
+import { Formik, Form as FormikForm } from "formik";
+import { ContactUsValidationSchema } from "../../Formik/validationSchema";
+import { ContactUsInitialValues } from "../../Formik/initialValues";
 
 export const ContactUsCont = styled.section`
 	display: flex;
@@ -25,7 +29,7 @@ export const ContactUsContainer = styled.div`
 	justify-content: space-between;
 	width: 100%;
 	background-color: var(--secondbackground);
-	padding: 20px;
+	padding: 10px;
 	border-radius: 10px;
 	gap: 50px;
 	max-width: 1300px;
@@ -43,20 +47,23 @@ export const ContactUsActions = styled.div`
 	width: 70%;
 `;
 
-export const ContactUsForm = styled.form`
+export const ContactUsForm = styled(FormikForm)`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	width: 60%;
-	gap: 10px;
+	width: 45%;
+	gap: 5px;
+	border-radius: 10px;
+	background-color: var(--background);
+	padding: 20px;
 `;
 
 export const ContactUsFormInput = styled.input`
 	padding: 10px;
 	width: 50%;
 	border-radius: 8px;
-	background: var(--secondbackground);
+	background: var(--background);
 	color: var(--text);
 	border: 1px solid #9bd23d74;
 	&::placeholder {
@@ -133,13 +140,28 @@ const ContactUs = () => {
 								</SocialIcon>
 							</SocialCont>
 						</ContactUsSocial>
-						<ContactUsForm>
-							<ContactUsSocialTitle>Support</ContactUsSocialTitle>
-							<ContactUsFormInput type="text" placeholder="Name" />
-							<ContactUsFormInput type="text" placeholder="Surname" />
-							<ContactUsFormInput type="email" placeholder="Email" />
-							<ProductsCardButton>Send</ProductsCardButton>
-						</ContactUsForm>
+						<Formik
+							validationSchema={ContactUsValidationSchema}
+							initialValues={ContactUsInitialValues}
+							onSubmit={({ resetForm }) => resetForm()}
+						>
+							{({ errors }) => (
+								<ContactUsForm>
+									<ContactUsSocialTitle>Support</ContactUsSocialTitle>
+
+									<Input as={ContactUsFormInput} isError={errors.name} type="text" placeholder="Name" name="name" />
+									<Input
+										as={ContactUsFormInput}
+										isError={errors.cellphone}
+										type="text"
+										placeholder="Celular"
+										name="cellphone"
+									/>
+									<Input as={ContactUsFormInput} isError={errors.email} type="text" placeholder="Email" name="email" />
+									<ProductsCardButton>Send</ProductsCardButton>
+								</ContactUsForm>
+							)}
+						</Formik>
 					</ContactUsActions>
 				</ContactUsContainer>
 			</ContactUsCont>

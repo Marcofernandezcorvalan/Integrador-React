@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { ContGeneral } from "../Login/Login";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 export const IconContainer = styled.div`
 	display: flex;
@@ -9,6 +10,7 @@ export const IconContainer = styled.div`
 	justify-content: center;
 	color: var(--thirdtext);
 	font-size: 250px;
+	cursor: pointer;
 `;
 
 export const TitleCongrats = styled.h2`
@@ -17,10 +19,11 @@ export const TitleCongrats = styled.h2`
 `;
 
 const Congrats = () => {
+	const navigate = useNavigate();
 	return (
 		<>
 			<ContGeneral>
-				<IconContainer>
+				<IconContainer onClick={() => navigate("/")}>
 					<AiOutlineCheckCircle />
 				</IconContainer>
 				<TitleCongrats>Disfrute su Compra!!!</TitleCongrats>

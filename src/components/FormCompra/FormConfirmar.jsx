@@ -7,6 +7,8 @@ import { checkoutValidationSchema } from "../../Formik/validationSchema";
 import Submit from "../../UI/Submit/Submit";
 import { useNavigate } from "react-router-dom";
 import { ContGeneral } from "../../pages/Login/Login";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../../Redux/carrito/carritoSlice";
 
 export const ContainerFormConfirmar = styled.div`
 	display: flex;
@@ -50,6 +52,7 @@ export const ButtonContainer = styled.div`
 
 const FormConfirmar = ({ cartItems }) => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	return (
 		<>
 			<ContGeneral>
@@ -58,7 +61,11 @@ const FormConfirmar = ({ cartItems }) => {
 					<Formik
 						initialValues={CheckoutInitialValues}
 						validationSchema={checkoutValidationSchema}
-						onSubmit={(values) => console.log(values)}
+						onSubmit={({ resetForm }) => {
+							resetForm();
+							dispatch(clearCart());
+							navigate("/Congrats");
+						}}
 					>
 						{({ errors }) => (
 							<Form>
@@ -96,9 +103,7 @@ const FormConfirmar = ({ cartItems }) => {
 									Dirección:
 								</Input>
 								<ButtonContainer>
-									<Submit disabled={!cartItems.length} onClick={(isSubmiting) => navigate("/Congrats")}>
-										Confirmar
-									</Submit>
+									<Submit disabled={!cartItems.length}>Confirmar</Submit>
 								</ButtonContainer>
 							</Form>
 						)}

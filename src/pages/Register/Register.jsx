@@ -1,6 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { ContGeneral, LoginFormButton, LoginFormInput, TitleGen } from "../Login/Login";
+import { Form as FormikForm, Formik } from "formik";
+import { LogRegInitialValues } from "../../Formik/initialValues";
+import { LogRegValidationSchema } from "../../Formik/validationSchema";
+
+import Input from "../../UI/Input/Input";
+import Submit from "../../UI/Submit/Submit";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterCont = styled.div`
 	display: flex;
@@ -16,30 +23,41 @@ export const RegisterCont = styled.div`
 	gap: 30px;
 `;
 
-export const RegisterForm = styled.form`
+export const Form = styled(FormikForm)`
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	gap: 20px;
+
 	background: var(--background);
 	border-radius: 10px;
 	height: 60%;
 	width: 80%;
-	padding: 20px;
+	padding: 10px;
 `;
 
 const Register = () => {
+	const navigate = useNavigate();
 	return (
 		<>
 			<ContGeneral>
 				<RegisterCont>
 					<TitleGen>Sign Up</TitleGen>
-					<RegisterForm>
-						<LoginFormInput type="email" placeholder="Email" />
-						<LoginFormInput type="password" placeholder="Password" />
-						<LoginFormButton>Sign Up</LoginFormButton>
-					</RegisterForm>
+					<Formik
+						initialValues={LogRegInitialValues}
+						validationSchema={LogRegValidationSchema}
+						onSubmit={() => {
+							navigate("/login");
+						}}
+					>
+						{({ errors }) => (
+							<Form>
+								<Input isError={errors.email} placeholder="email" name="email" type="text" />
+								<Input isError={errors.password} placeholder="password" name="password" type="password" />
+								<Submit>Sign Up</Submit>
+							</Form>
+						)}
+					</Formik>
 				</RegisterCont>
 			</ContGeneral>
 		</>

@@ -4,3 +4,14 @@ export const CheckoutInitialValues = {
 	location: "",
 	address: "",
 };
+
+export const LogRegInitialValues = {
+	email: "",
+	password: "",
+};
+
+export const ContactUsInitialValues = {
+	name: "",
+	cellphone: "",
+	email: "",
+};
