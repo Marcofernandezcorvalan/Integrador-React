@@ -4,6 +4,9 @@ import { keyframes, styled } from "styled-components";
 import logo from "../../assets/img/LogoNvidiaTransp.png";
 import CartIcon from "./carrito/CartIcon";
 import Carrito from "./carrito/Carrito";
+import MenuIcon from "./MenuHambur/MenuIcon";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleMenuHambur } from "../../Redux/MenuHamburSlice/menuHamburSlice";
 
 export const zoomAnimation = keyframes`
 
@@ -26,7 +29,7 @@ export const NavbarStyled = styled.header`
 	background: var(--secondbackground);
 	justify-content: space-between;
 	align-items: center;
-	padding: 30px 50px;
+	padding: 30px 30px;
 	gap: 30px;
 	top: 0;
 	position: fixed;
@@ -43,6 +46,9 @@ export const LinkContainer = styled.ul`
 	display: flex;
 	align-items: center;
 	gap: 30px;
+	@media screen and (max-width: 768px) {
+		display: none;
+	}
 `;
 
 export const NavLinkStyled = styled(NavLink)`
@@ -61,18 +67,59 @@ export const NavbarCont = styled.div`
 	gap: 50px;
 `;
 
+export const MenuHamburContLinks = styled.div`
+	display: flex;
+	flex-direction: column;
+	@media screen and (max-width: 768px) {
+		/* display: none; */
+		position: absolute;
+		margin-left: 0px;
+		top: 50px;
+		left: 70%;
+		right: 5%;
+		width: 30%;
+		flex-direction: column;
+		border-top: 0px;
+		border-radius: 0px 0px 10px 10px;
+		align-items: center;
+		padding: 45px 30px;
+		gap: 20px;
+		z-index: 2;
+		background-color: var(--secondbackground);
+	}
+`;
+
 const Navbar = () => {
 	const navigate = useNavigate();
+	const hiddenMenu = useSelector((state) => state.MenuHambur.hiddenMenu);
+	const dispatch = useDispatch();
+
 	return (
 		<>
 			<NavbarStyled>
 				<ImgStyled src={logo} alt="Nvidia Logo" onClick={() => navigate("/")} />
 				<NavbarCont>
+					<MenuIcon />
+
 					<LinkContainer>
 						<NavLinkStyled to="/">Home</NavLinkStyled>
 						<NavLinkStyled to="/login">Login</NavLinkStyled>
 						<NavLinkStyled to="/register">Register</NavLinkStyled>
 					</LinkContainer>
+
+					{!hiddenMenu && (
+						<MenuHamburContLinks>
+							<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/">
+								Home
+							</NavLinkStyled>
+							<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/login">
+								Login
+							</NavLinkStyled>
+							<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/register">
+								Register
+							</NavLinkStyled>
+						</MenuHamburContLinks>
+					)}
 					<CartIcon />
 					<Carrito />
 				</NavbarCont>

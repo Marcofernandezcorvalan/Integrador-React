@@ -1,15 +1,31 @@
 import React from "react";
-import { LinkContainer } from "../Navbar";
 import { BsCart2 } from "react-icons/bs";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleCart } from "../../../Redux/carrito/carritoSlice";
+import { styled } from "styled-components";
+import { toggleMenuHambur } from "../../../Redux/MenuHamburSlice/menuHamburSlice";
+
+export const IconCont = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 30px;
+`;
 
 const CartIcon = () => {
 	const dispatch = useDispatch();
+	const hiddenMenu = useSelector((state) => state.MenuHambur.hiddenMenu);
+
 	return (
-		<LinkContainer onClick={() => dispatch(toggleCart())}>
+		<IconCont
+			onClick={() => {
+				if (hiddenMenu === false) {
+					dispatch(toggleMenuHambur());
+				}
+				dispatch(toggleCart());
+			}}
+		>
 			<BsCart2 style={{ cursor: "pointer" }} />
-		</LinkContainer>
+		</IconCont>
 	);
 };
 

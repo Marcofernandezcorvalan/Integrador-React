@@ -5,11 +5,13 @@ import persistStore from "redux-persist/lib/persistStore";
 import categoriesReducer from "./categories/categoriesSlice";
 import productsReducer from "./productos/productsSlice";
 import carritoReducer from "./carrito/carritoSlice";
+import MenuHamburReducer from "./MenuHamburSlice/menuHamburSlice";
 
 const reducers = combineReducers({
 	categories: categoriesReducer,
 	products: productsReducer,
 	carrito: carritoReducer,
+	MenuHambur: MenuHamburReducer,
 });
 
 const persistConfig = {

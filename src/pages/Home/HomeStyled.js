@@ -38,6 +38,7 @@ export const BenefitsTitle = styled.h2`
 
 export const BenefitsCont = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	gap: 50px;
