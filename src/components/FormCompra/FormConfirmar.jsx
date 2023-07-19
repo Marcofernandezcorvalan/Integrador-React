@@ -62,9 +62,9 @@ const FormConfirmar = ({ cartItems }) => {
 						initialValues={CheckoutInitialValues}
 						validationSchema={checkoutValidationSchema}
 						onSubmit={({ resetForm }) => {
-							resetForm();
 							dispatch(clearCart());
 							navigate("/Congrats");
+							resetForm();
 						}}
 					>
 						{({ errors }) => (

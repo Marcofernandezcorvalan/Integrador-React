@@ -9,6 +9,7 @@ export const IconCont = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 30px;
+	font-weight: 600;
 `;
 
 const CartIcon = () => {
