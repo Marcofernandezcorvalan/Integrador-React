@@ -11,11 +11,17 @@ export const IconContainer = styled.div`
 	color: var(--thirdtext);
 	font-size: 250px;
 	cursor: pointer;
+	@media screen and (max-width: 768px) {
+		font-size: 100px;
+	}
 `;
 
 export const TitleCongrats = styled.h2`
 	font-size: 20px;
 	font-weight: 600;
+	@media screen and (max-width: 768px) {
+		font-size: 15px;
+	}
 `;
 
 const Congrats = () => {

@@ -18,7 +18,9 @@ export const ContainerFormConfirmar = styled.div`
 	width: 100%;
 	margin: 0 auto;
 	gap: 20px;
-	margin-bottom: 100px;
+	@media screen and (max-width: 488px) {
+		gap: 0px;
+	}
 `;
 
 export const TitleConfirm = styled.h2`
@@ -26,6 +28,9 @@ export const TitleConfirm = styled.h2`
 	font-weight: 700;
 	color: #8bbe33ef;
 	margin-bottom: 30px;
+	@media screen and (max-width: 480px) {
+		font-size: 15px;
+	}
 `;
 
 export const Form = styled(FormikForm)`
@@ -33,8 +38,13 @@ export const Form = styled(FormikForm)`
 	align-items: center;
 	flex-wrap: wrap;
 	padding: 20px;
-	margin-bottom: 10px;
+
 	justify-content: space-between;
+	@media screen and (max-width: 488px) {
+		flex-direction: column;
+		width: 100%;
+		padding: 0px;
+	}
 `;
 
 export const Formik = styled(FormikCont)`

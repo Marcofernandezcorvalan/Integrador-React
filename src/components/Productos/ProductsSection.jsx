@@ -12,6 +12,13 @@ export const ProductsContainer = styled.div`
 	width: 95%;
 	gap: 20px;
 	max-width: 1300px;
+	@media screen and (max-width: 550px) {
+		width: 90%;
+		flex-direction: column;
+	}
+	@media screen and (max-width: 420px) {
+		width: 95%;
+	}
 `;
 
 const ProductsSection = () => {

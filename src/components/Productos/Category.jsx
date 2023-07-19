@@ -19,6 +19,14 @@ export const CategoryButton = styled.div`
 	transition: all 0.3s ease;
 	background-color: ${({ pick }) => (pick ? "var(--thirdtext)" : "var(--secondbackground)")};
 	color: ${({ pick }) => (pick ? "var(--secondbackground)" : "var(--thirdtext)")};
+	@media screen and (max-width: 550px) {
+		font-size: 13px;
+	}
+	@media screen and (max-width: 420px) {
+		width: 90px;
+		font-size: 11px;
+		padding: 5px;
+	}
 `;
 
 export const CategoryTitle = styled.h4`

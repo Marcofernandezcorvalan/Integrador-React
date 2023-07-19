@@ -22,6 +22,17 @@ export const FooterSyled = styled.footer`
 	gap: 10px;
 	font-weight: 600;
 	padding: 30px;
+	@media screen and (max-width: 550px) {
+		padding: 10px;
+		font-size: 12px;
+	}
+`;
+
+export const PStyled = styled.p`
+	font-size: 14px;
+	@media screen and (max-width: 550px) {
+		font-size: 11px;
+	}
 `;
 
 export const UlStlyed = styled.ul`
@@ -29,6 +40,12 @@ export const UlStlyed = styled.ul`
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
+	@media screen and (max-width: 550px) {
+		font-size: 10px;
+	}
+	@media screen and (max-width: 420px) {
+		font-size: 8px;
+	}
 `;
 
 const Layout = ({ children }) => {
@@ -45,7 +62,7 @@ const Layout = ({ children }) => {
 				<ContentContainer>{children}</ContentContainer>
 				<FooterSyled>
 					<ImgStyled src={logo} alt="Nvidia Logo" />
-					<p>Copyright © 2022 NVIDIA Corporation</p>
+					<PStyled>Copyright © 2022 NVIDIA Corporation</PStyled>
 					<UlStlyed>
 						<li>Terminos y Condiciones</li>
 						<li>Política y Privacidad</li>

@@ -58,6 +58,9 @@ export const NavLinkStyled = styled(NavLink)`
 	&.active {
 		color: var(--thirdtext);
 	}
+	@media screen and (max-width: 660px) {
+		font-size: 13px;
+	}
 `;
 
 export const NavbarCont = styled.div`
@@ -65,6 +68,9 @@ export const NavbarCont = styled.div`
 	justify-content: center;
 	align-items: center;
 	gap: 50px;
+	@media screen and (max-width: 660px) {
+		gap: 30px;
+	}
 `;
 
 export const MenuHamburContLinks = styled.div`
@@ -86,6 +92,16 @@ export const MenuHamburContLinks = styled.div`
 		gap: 20px;
 		z-index: 2;
 		background-color: var(--secondbackground);
+	}
+	@media screen and (max-width: 660px) {
+		width: 40%;
+		left: 60%;
+	}
+	@media screen and (max-width: 550px) {
+		width: 100%;
+		left: 0%;
+		right: 0%;
+		padding: 30px;
 	}
 `;
 

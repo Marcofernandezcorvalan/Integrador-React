@@ -33,10 +33,37 @@ export const ContactUsContainer = styled.div`
 	border-radius: 10px;
 	gap: 50px;
 	max-width: 1300px;
+	@media screen and (max-width: 992px) {
+		gap: 10px;
+	}
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		padding: 30px 10px;
+	}
+	@media screen and (max-width: 590px) {
+		padding: 10px;
+	}
+	@media screen and (max-width: 420px) {
+		width: 95%;
+		padding: 15px;
+	}
 `;
 export const ContactUsImg = styled.img`
 	border-radius: 10px;
 	width: 40%;
+	@media screen and (max-width: 992px) {
+		width: 45%;
+	}
+	@media screen and (max-width: 768px) {
+		width: 75%;
+		height: 300px;
+	}
+	@media screen and (max-width: 590px) {
+		width: 100%;
+	}
+	@media screen and (max-width: 420px) {
+		display: none;
+	}
 `;
 
 export const ContactUsActions = styled.div`
@@ -45,6 +72,20 @@ export const ContactUsActions = styled.div`
 	justify-content: space-around;
 	gap: 20px;
 	width: 70%;
+	@media screen and (max-width: 992px) {
+		gap: 10px;
+	}
+	@media screen and (max-width: 768px) {
+		gap: 20px;
+		width: 90%;
+	}
+	@media screen and (max-width: 590px) {
+		width: 100%;
+	}
+	@media screen and (max-width: 420px) {
+		flex-direction: column-reverse;
+		gap: 30px;
+	}
 `;
 
 export const ContactUsForm = styled(FormikForm)`
@@ -57,6 +98,21 @@ export const ContactUsForm = styled(FormikForm)`
 	border-radius: 10px;
 	background-color: var(--background);
 	padding: 20px;
+	@media screen and (max-width: 992px) {
+		width: 60%;
+	}
+	@media screen and (max-width: 768px) {
+		width: 45%;
+	}
+	@media screen and (max-width: 590px) {
+		padding: 10px;
+	}
+	@media screen and (max-width: 420px) {
+		width: 80%;
+	}
+	@media screen and (max-width: 380px) {
+		width: 100%;
+	}
 `;
 
 export const ContactUsFormInput = styled.input`
@@ -78,6 +134,12 @@ export const ContactUsSocial = styled.div`
 	flex-direction: column;
 	width: 30%;
 	gap: 10px;
+	@media screen and (max-width: 768px) {
+		width: 40%;
+	}
+	@media screen and (max-width: 420px) {
+		width: 60%;
+	}
 `;
 
 export const ContactUsSocialTitle = styled.h4`
@@ -90,6 +152,9 @@ export const SocialCont = styled.div`
 	justify-content: space-between;
 	width: 60%;
 	gap: 10px;
+	@media screen and (max-width: 420px) {
+		justify-content: center;
+	}
 `;
 
 export const SocialP = styled.p`
@@ -102,6 +167,12 @@ export const SocialP = styled.p`
 		transition: all 0.3s ease;
 		transform: scale(0.93);
 	}
+	@media screen and (max-width: 590px) {
+		font-size: 12px;
+	}
+	@media screen and (max-width: 420px) {
+		font-size: 15px;
+	}
 `;
 
 export const SocialIcon = styled.div`
@@ -109,6 +180,12 @@ export const SocialIcon = styled.div`
 	/* border-radius: 10px; */
 	align-items: center;
 	align-self: flex-end;
+	@media screen and (max-width: 590px) {
+		font-size: 12px;
+	}
+	@media screen and (max-width: 420px) {
+		font-size: 17px;
+	}
 `;
 
 const ContactUs = () => {

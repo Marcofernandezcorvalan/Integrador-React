@@ -10,6 +10,9 @@ export const IconCont = styled.div`
 	align-items: center;
 	gap: 30px;
 	font-weight: 600;
+	@media screen and (max-width: 660px) {
+		font-size: 18px;
+	}
 `;
 
 const CartIcon = () => {

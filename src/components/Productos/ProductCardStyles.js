@@ -18,18 +18,34 @@ export const ProductsContCards = styled.div`
 		transform: scale(1.1);
 		/* z-index: 0; */
 	}
+	@media screen and (max-width: 550px) {
+		width: 80%;
+		height: 320px;
+		padding: 15px 10px;
+	}
+	@media screen and (max-width: 420px) {
+		width: 90%;
+		height: 300px;
+	}
 `;
 
 export const ProductsCardsImg = styled.img`
 	width: 95%;
 	height: 60%;
 	border-radius: 10px;
+	@media screen and (max-width: 550px) {
+		width: 100%;
+		height: 75%;
+	}
 `;
 
 export const ProductsCardTitle = styled.h3`
 	font-size: 18px;
 	font-weight: 600;
 	color: var(--thirdtext);
+	@media screen and (max-width: 550px) {
+		font-size: 15px;
+	}
 `;
 
 export const ProductsCardSecondCont = styled.div`
@@ -37,6 +53,9 @@ export const ProductsCardSecondCont = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	width: 90%;
+	@media screen and (max-width: 550px) {
+		font-size: 12px;
+	}
 `;
 
 export const ProductsCardP = styled.p`

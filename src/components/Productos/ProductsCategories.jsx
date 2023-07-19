@@ -16,6 +16,17 @@ export const ProductsCategoriesCont = styled.div`
 		border: 1px solid var(--background);
 		transition: all 0.3s ease;
 	}
+	@media screen and (max-width: 768px) {
+		width: 100%;
+	}
+	@media screen and (max-width: 550px) {
+		width: 90%;
+		gap: 10px;
+	}
+	@media screen and (max-width: 420px) {
+		width: 95%;
+		gap: 5px;
+	}
 `;
 
 export const ProductsCategory = styled.button`

@@ -11,12 +11,33 @@ export const HeroContainer = styled.section`
 	max-width: 1300px;
 	padding: 10px;
 	border-radius: 10px;
+	@media screen and (max-width: 768px) {
+		margin-top: 90px;
+	}
+	@media screen and (max-width: 590px) {
+		margin-top: 50px;
+	}
+	@media screen and (max-width: 420px) {
+		margin-top: 30px;
+	}
 `;
 
 export const HeroImg = styled.img`
 	/* height: 110%; */
 	width: 75%;
 	border-radius: 10px;
+	@media screen and (max-width: 992px) {
+		width: 85%;
+	}
+	@media screen and (max-width: 768px) {
+		width: 95%;
+	}
+	@media screen and (max-width: 590px) {
+		width: 100%;
+	}
+	@media screen and (max-width: 420px) {
+		height: 250px;
+	}
 `;
 // Benefits
 export const Benefits = styled.section`
@@ -34,6 +55,9 @@ export const Benefits = styled.section`
 
 export const BenefitsTitle = styled.h2`
 	font-size: 32px;
+	@media screen and (max-width: 768px) {
+		font-size: 35px;
+	}
 `;
 
 export const BenefitsCont = styled.div`
@@ -44,6 +68,12 @@ export const BenefitsCont = styled.div`
 	gap: 50px;
 	width: 95%;
 	max-width: 1300px;
+	@media screen and (max-width: 992px) {
+		width: 100%;
+	}
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+	}
 `;
 
 export const BenefitsContCards = styled.div`
@@ -57,6 +87,22 @@ export const BenefitsContCards = styled.div`
 	border-radius: 10px;
 	width: 30%;
 	height: 250px;
+	@media screen and (max-width: 992px) {
+		padding: 20px;
+		width: 40%;
+	}
+	@media screen and (max-width: 768px) {
+		width: 50%;
+		height: 300px;
+	}
+	@media screen and (max-width: 590px) {
+		width: 70%;
+		padding: 20px 30px;
+		height: 250px;
+	}
+	@media screen and (max-width: 420px) {
+		width: 90%;
+	}
 `;
 
 export const BenefitsCardTitle = styled.div`
@@ -66,11 +112,24 @@ export const BenefitsCardTitle = styled.div`
 	gap: 10px;
 	color: var(--thirdtext);
 	font-size: 23px;
+	@media screen and (max-width: 768px) {
+		font-size: 25px;
+	}
+	@media screen and (max-width: 420px) {
+		font-size: 20px;
+	}
 `;
 
 export const BenefitsCardP = styled.p`
 	font-size: 13px;
 	color: var(--text);
+
+	@media screen and (max-width: 768px) {
+		font-size: 14px;
+	}
+	@media screen and (max-width: 590px) {
+		font-size: 13px;
+	}
 `;
 // Products
 export const Products = styled.section`
@@ -87,6 +146,9 @@ export const Products = styled.section`
 
 export const ProductsTitle = styled.h2`
 	font-size: 32px;
+	@media screen and (max-width: 768px) {
+		font-size: 35px;
+	}
 `;
 
 export const ProductsCategoriesCont = styled.div`

@@ -16,6 +16,9 @@ export const Label = styled.label`
 	justify-content: flex-start;
 	align-items: flex-start;
 	font-weight: 600;
+	@media screen and (max-width: 488px) {
+		font-size: 12px;
+	}
 `;
 
 export const ErrorMessageStyled = styled.span`

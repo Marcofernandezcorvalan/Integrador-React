@@ -19,6 +19,9 @@ export const CarritoCont = styled.div`
 	&::-webkit-scrollbar {
 		display: none;
 	}
+	@media screen and (max-width: 420px) {
+		width: 100%;
+	}
 `;
 
 export const CarritoTitle = styled.h2`

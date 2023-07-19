@@ -13,6 +13,9 @@ export const MenuIconCont = styled.div`
 		display: flex;
 		cursor: pointer;
 	}
+	@media screen and (max-width: 660px) {
+		font-size: 20px;
+	}
 `;
 
 const MenuIcon = () => {
