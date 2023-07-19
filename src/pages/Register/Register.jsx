@@ -21,6 +21,9 @@ export const RegisterCont = styled.div`
 	margin-bottom: 100px;
 	border-radius: 10px;
 	gap: 30px;
+	@media screen and (max-width: 420px) {
+		width: 300px;
+	}
 `;
 
 export const Form = styled(FormikForm)`

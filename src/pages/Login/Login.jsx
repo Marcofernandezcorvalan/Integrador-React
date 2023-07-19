@@ -28,6 +28,9 @@ export const LoginCont = styled.div`
 	border-radius: 10px;
 	gap: 30px;
 	padding: 10px;
+	@media screen and (max-width: 420px) {
+		width: 320px;
+	}
 `;
 
 export const Form = styled(FormikForm)`
