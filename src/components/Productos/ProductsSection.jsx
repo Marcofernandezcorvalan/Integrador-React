@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import ProductCard from "./ProductCard";
-import { useSelector } from "react-redux";
+// import ProductCard from "./ProductCard";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../axios/axiosProducts";
+import { clearError } from "../../Redux/productos/productsSlice";
 // import { Products } from "../../data/productsData";
 
 export const ProductsContainer = styled.div`
@@ -22,23 +24,37 @@ export const ProductsContainer = styled.div`
 `;
 
 const ProductsSection = () => {
-	let productos = useSelector((state) => state.products.products);
+	// let productos = useSelector((state) => state.products.products);
 	const pickedCategory = useSelector((state) => state.categories.pickedCategory);
+	const { products, error } = useSelector((state) => state.products);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (!products) {
+			getProducts(dispatch);
+		} else {
+			error && clearError();
+		}
+	}, [products, error]);
 
 	if (pickedCategory) {
-		productos = {
-			[pickedCategory]: productos[pickedCategory],
+		products = {
+			[pickedCategory]: products[pickedCategory],
 		};
 	}
-
 	return (
 		<>
 			<ProductsContainer>
-				{Object.entries(productos).map(([, graf]) => {
+				{/* {Object.entries(products)?.map(([, graf]) => {
 					return graf?.map((prod) => {
 						return <ProductCard {...prod} key={prod.id} />;
 					});
-				})}
+				})} */}
+				{products
+					? products?.map((prod) => {
+							return <ProductCard {...prod} key={prod.id} />;
+					  })
+					: error}
 			</ProductsContainer>
 		</>
 	);
