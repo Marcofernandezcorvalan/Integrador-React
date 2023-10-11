@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-// import ProductCard from "./ProductCard";
+import ProductCard from "./ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../axios/axiosProducts";
 import { clearError } from "../../Redux/productos/productsSlice";
@@ -26,7 +26,7 @@ export const ProductsContainer = styled.div`
 const ProductsSection = () => {
 	// let productos = useSelector((state) => state.products.products);
 	const pickedCategory = useSelector((state) => state.categories.pickedCategory);
-	const { products, error } = useSelector((state) => state.products);
+	let { products, error } = useSelector((state) => state.products);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -51,8 +51,8 @@ const ProductsSection = () => {
 					});
 				})} */}
 				{products
-					? products?.map((prod) => {
-							return <ProductCard {...prod} key={prod.id} />;
+					? products?.map((products) => {
+							return <ProductCard {...products} key={products.id} />;
 					  })
 					: error}
 			</ProductsContainer>

@@ -6,11 +6,24 @@ export const getProducts = async (dispatch) => {
 	dispatch(fetchProductsLoading());
 	try {
 		const products = await axios.get(`${BASE_URL}products`);
-		if (products) {
-			dispatch(fetchProducts(products));
+		// console.log(products);
+		const res = products.data;
+
+		const response = Object.entries(res).map(([, prod]) => {
+			return prod;
+		});
+
+		// const that = response.map(([, eso]) => {
+		// 	return eso.map((esto) => {
+		// 		return [esto];
+		// 	});
+		// });
+		// console.log(response);
+		if (response) {
+			dispatch(fetchProducts(response));
 		}
-		products.JSON.parse();
-		return products.data;
+
+		return response;
 	} catch (error) {
 		console.log(error);
 		dispatch(fetchProductsError("No se pudieron cargar los Productos"));
