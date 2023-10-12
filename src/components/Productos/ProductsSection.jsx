@@ -37,19 +37,27 @@ const ProductsSection = () => {
 		}
 	}, [products, error]);
 
+	// const filterByCategory = (card) => {
+	// 	if (card.category === pickedCategory) {
+	// 		return card;
+	// 	}
+	// };
+
+	// const prodByCategory = products.filter(filterByCategory);
+	// console.log(prodByCategory);
+
 	if (pickedCategory) {
-		products = {
-			[pickedCategory]: products[pickedCategory],
+		const filterByCategory = (card) => {
+			if (card.category === pickedCategory) {
+				return card;
+			}
 		};
+		const prodByCategory = products.filter(filterByCategory);
+		products = prodByCategory;
 	}
 	return (
 		<>
 			<ProductsContainer>
-				{/* {Object.entries(products)?.map(([, graf]) => {
-					return graf?.map((prod) => {
-						return <ProductCard {...prod} key={prod.id} />;
-					});
-				})} */}
 				{products
 					? products?.map((products) => {
 							return <ProductCard {...products} key={products.id} />;
