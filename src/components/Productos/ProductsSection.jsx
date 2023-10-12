@@ -42,7 +42,6 @@ const ProductsSection = () => {
 	// 		return card;
 	// 	}
 	// };
-
 	// const prodByCategory = products.filter(filterByCategory);
 	// console.log(prodByCategory);
 

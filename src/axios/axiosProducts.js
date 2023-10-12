@@ -12,7 +12,6 @@ export const getProducts = async (dispatch) => {
 		const response = Object.entries(res).map(([, prod]) => {
 			return prod;
 		});
-
 		// const that = response.map(([, eso]) => {
 		// 	return eso.map((esto) => {
 		// 		return [esto];
