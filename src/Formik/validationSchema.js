@@ -17,6 +17,15 @@ export const checkoutValidationSchema = Yup.object({
 });
 
 export const LogRegValidationSchema = Yup.object({
+	name: Yup.string().trim().matches(RegexForName, "No se permiten Números").required("Complete este Campo"),
+	email: Yup.string().matches(RegexMail, "Escriba su E-mail").required("Complete este Campo"),
+	password: Yup.string()
+		.min(8, "Mínimo 8 Caracteres")
+		.matches(RegexPassw, "Una Mayúscula y Un Número")
+		.required("Complete este Campo"),
+});
+
+export const LoginValidationSchema = Yup.object({
 	email: Yup.string().matches(RegexMail, "Escriba su E-mail").required("Complete este Campo"),
 	password: Yup.string()
 		.min(8, "Mínimo 8 Caracteres")

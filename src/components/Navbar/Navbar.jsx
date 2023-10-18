@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { keyframes, styled } from "styled-components";
 import logo from "../../assets/img/LogoNvidiaTransp.png";
 import CartIcon from "./carrito/CartIcon";
@@ -46,6 +46,9 @@ export const LinkContainer = styled.ul`
 	display: flex;
 	align-items: center;
 	gap: 30px;
+	color: var(--text);
+	font-weight: 600;
+	font-size: 15px;
 	@media screen and (max-width: 768px) {
 		display: none;
 	}
@@ -67,7 +70,7 @@ export const NavbarCont = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 50px;
+	gap: 25px;
 	@media screen and (max-width: 660px) {
 		gap: 30px;
 	}
@@ -109,6 +112,7 @@ const Navbar = () => {
 	const navigate = useNavigate();
 	const hiddenMenu = useSelector((state) => state.MenuHambur.hiddenMenu);
 	const dispatch = useDispatch();
+	const actualUser = useSelector((state) => state.user.actualUser);
 
 	return (
 		<>
@@ -119,21 +123,30 @@ const Navbar = () => {
 
 					<LinkContainer>
 						<NavLinkStyled to="/">Home</NavLinkStyled>
-						<NavLinkStyled to="/login">Login</NavLinkStyled>
-						<NavLinkStyled to="/register">Register</NavLinkStyled>
+						{actualUser ? `${actualUser.name} ` : <NavLinkStyled to="/login">Login</NavLinkStyled>}
+						{actualUser ? <div> Compras</div> : <NavLinkStyled to="/register">Register</NavLinkStyled>}
 					</LinkContainer>
+					<LinkContainer>{actualUser ? <div> Log Out</div> : null}</LinkContainer>
 
 					{!hiddenMenu && (
 						<MenuHamburContLinks>
 							<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/">
 								Home
 							</NavLinkStyled>
-							<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/login">
-								Login
-							</NavLinkStyled>
-							<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/register">
-								Register
-							</NavLinkStyled>
+							{actualUser ? (
+								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())}>Compras</NavLinkStyled>
+							) : (
+								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/login">
+									Login
+								</NavLinkStyled>
+							)}
+							{actualUser ? (
+								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())}>Log Out </NavLinkStyled>
+							) : (
+								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/register">
+									Register
+								</NavLinkStyled>
+							)}
 						</MenuHamburContLinks>
 					)}
 					<CartIcon />

@@ -3,9 +3,12 @@ import React from "react";
 import styled from "styled-components";
 import Input from "../../UI/Input/Input";
 import Submit from "../../UI/Submit/Submit";
-import { LogRegInitialValues } from "../../Formik/initialValues";
-import { LogRegValidationSchema } from "../../Formik/validationSchema";
+import { loginInitialValues } from "../../Formik/initialValues";
+import { LoginValidationSchema } from "../../Formik/validationSchema";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../axios/axiosUser";
+import { useDispatch } from "react-redux";
+import { setActualUser } from "../../Redux/user/userSlice";
 
 export const ContGeneral = styled.div`
 	height: 100vh;
@@ -81,16 +84,28 @@ export const TitleGen = styled.h3`
 
 const Login = () => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	return (
 		<>
 			<ContGeneral>
 				<LoginCont>
 					<TitleGen>Welcome Back</TitleGen>
 					<Formik
-						initialValues={LogRegInitialValues}
-						validationSchema={LogRegValidationSchema}
-						onSubmit={() => {
-							navigate("/");
+						initialValues={loginInitialValues}
+						validationSchema={LoginValidationSchema}
+						onSubmit={async (values, actions) => {
+							const user = await loginUser(values.email, values.password);
+							console.log(user);
+							actions.resetForm();
+							if (user) {
+								dispatch(
+									setActualUser({
+										...user.user,
+										token: user.token,
+									})
+								);
+								navigate("/");
+							}
 						}}
 					>
 						{(errors) => (

@@ -6,24 +6,30 @@ import categoriesReducer from "./categories/categoriesSlice";
 import productsReducer from "./productos/productsSlice";
 import carritoReducer from "./carrito/carritoSlice";
 import MenuHamburReducer from "./MenuHamburSlice/menuHamburSlice";
+import userReducer from "./user/userSlice";
 
 const reducers = combineReducers({
 	categories: categoriesReducer,
 	products: productsReducer,
 	carrito: carritoReducer,
 	MenuHambur: MenuHamburReducer,
+	user: userReducer,
 });
 
 const persistConfig = {
 	key: "root",
 	storage,
-	whitelist: ["carrito"],
+	whitelist: ["carrito", "user"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
 	reducer: persistedReducer,
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: false,
+		}),
 });
 
 export const persistor = persistStore(store);

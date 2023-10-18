@@ -6,6 +6,12 @@ export const CheckoutInitialValues = {
 };
 
 export const LogRegInitialValues = {
+	name: "",
+	email: "",
+	password: "",
+};
+
+export const loginInitialValues = {
 	email: "",
 	password: "",
 };
