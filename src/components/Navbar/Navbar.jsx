@@ -7,6 +7,7 @@ import Carrito from "./carrito/Carrito";
 import MenuIcon from "./MenuHambur/MenuIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenuHambur } from "../../Redux/MenuHamburSlice/menuHamburSlice";
+import { logOut } from "../../Redux/user/userSlice";
 
 export const zoomAnimation = keyframes`
 
@@ -61,8 +62,11 @@ export const NavLinkStyled = styled(NavLink)`
 	&.active {
 		color: var(--thirdtext);
 	}
-	@media screen and (max-width: 660px) {
+	@media screen and (max-width: 853px) {
 		font-size: 13px;
+	}
+	@media screen and (max-width: 768px) {
+		font-size: 15px;
 	}
 `;
 
@@ -123,25 +127,48 @@ const Navbar = () => {
 
 					<LinkContainer>
 						<NavLinkStyled to="/">Home</NavLinkStyled>
-						{actualUser ? `${actualUser.name} ` : <NavLinkStyled to="/login">Login</NavLinkStyled>}
-						{actualUser ? <div> Compras</div> : <NavLinkStyled to="/register">Register</NavLinkStyled>}
+						{actualUser ? (
+							<NavLinkStyled>{actualUser.name}</NavLinkStyled>
+						) : (
+							<NavLinkStyled to="/login">Login</NavLinkStyled>
+						)}
+						{actualUser ? (
+							<NavLinkStyled> Compras</NavLinkStyled>
+						) : (
+							<NavLinkStyled to="/register">Register</NavLinkStyled>
+						)}
 					</LinkContainer>
-					<LinkContainer>{actualUser ? <div> Log Out</div> : null}</LinkContainer>
+					<LinkContainer>
+						{actualUser ? <NavLinkStyled onClick={() => dispatch(logOut())}> Log Out</NavLinkStyled> : null}
+					</LinkContainer>
 
 					{!hiddenMenu && (
 						<MenuHamburContLinks>
-							<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/">
+							<NavLinkStyled style={{ color: "var(--secondarytext)" }}>
+								{actualUser ? `${actualUser.name} ` : null}
+							</NavLinkStyled>
+							<NavLinkStyled style={{ color: "var(--thirdtext)" }} onClick={() => dispatch(toggleMenuHambur())} to="/">
 								Home
 							</NavLinkStyled>
 							{actualUser ? (
-								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())}>Compras</NavLinkStyled>
+								<NavLinkStyled style={{ color: "var(--thirdtext)" }} onClick={() => dispatch(toggleMenuHambur())}>
+									Compras
+								</NavLinkStyled>
 							) : (
 								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/login">
 									Login
 								</NavLinkStyled>
 							)}
 							{actualUser ? (
-								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())}>Log Out </NavLinkStyled>
+								<NavLinkStyled
+									style={{ color: "var(--thirdtext)" }}
+									onClick={() => {
+										dispatch(logOut());
+										dispatch(toggleMenuHambur());
+									}}
+								>
+									Log Out{" "}
+								</NavLinkStyled>
 							) : (
 								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/register">
 									Register

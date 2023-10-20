@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import FormConfirmar from "../../components/FormCompra/FormConfirmar";
 import { useSelector } from "react-redux";
+import useRedirectNoUser from "../../components/Hooks/useRedirectNoUser";
 
 export const ContainerFormCompra = styled.div`
 	display: flex;
@@ -12,6 +13,7 @@ export const ContainerFormCompra = styled.div`
 
 const FormCompra = () => {
 	const { cartItems } = useSelector((state) => state.carrito);
+	useRedirectNoUser("/login");
 	return (
 		<>
 			<ContainerFormCompra>

@@ -12,6 +12,7 @@ export const registerUser = async (name, email, password) => {
 		return res.data;
 	} catch (error) {
 		console.log(error);
+		return alert(error.response.data.errors.errors[0].msg);
 	}
 };
 
@@ -24,6 +25,7 @@ export const loginUser = async (email, password) => {
 
 		return res.data;
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
+		return alert(error.response.data.msg);
 	}
 };

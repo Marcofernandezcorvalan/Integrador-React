@@ -5,10 +5,10 @@ import Input from "../../UI/Input/Input";
 import Submit from "../../UI/Submit/Submit";
 import { loginInitialValues } from "../../Formik/initialValues";
 import { LoginValidationSchema } from "../../Formik/validationSchema";
-import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../axios/axiosUser";
 import { useDispatch } from "react-redux";
 import { setActualUser } from "../../Redux/user/userSlice";
+import useRedirect from "../../components/Hooks/useRedirect";
 
 export const ContGeneral = styled.div`
 	height: 100vh;
@@ -83,8 +83,8 @@ export const TitleGen = styled.h3`
 `;
 
 const Login = () => {
-	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	useRedirect("/");
 	return (
 		<>
 			<ContGeneral>
@@ -104,7 +104,6 @@ const Login = () => {
 										token: user.token,
 									})
 								);
-								navigate("/");
 							}
 						}}
 					>

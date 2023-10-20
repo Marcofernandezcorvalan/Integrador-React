@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CarritoItem from "./CarritoItem";
 import { useNavigate } from "react-router-dom";
 import { clearCart, toggleCart } from "../../../Redux/carrito/carritoSlice";
+import useRedirectNoUser from "../../Hooks/useRedirectNoUser";
 
 const Carrito = () => {
 	const hidden = useSelector((state) => state.carrito.hidden);
