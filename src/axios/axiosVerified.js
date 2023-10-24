@@ -9,6 +9,7 @@ export const isVerified = async (code) => {
 
 		return res.data;
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
+		return alert(error.response.data.msg);
 	}
 };
