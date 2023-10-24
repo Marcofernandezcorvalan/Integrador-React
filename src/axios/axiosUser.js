@@ -11,8 +11,8 @@ export const registerUser = async (name, email, password) => {
 
 		return res.data;
 	} catch (error) {
-		console.log(error);
 		return alert(error.response.data.errors.errors[0].msg);
+		// console.log(error);
 	}
 };
 

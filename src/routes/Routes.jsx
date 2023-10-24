@@ -7,6 +7,7 @@ import Layout from "../components/layout/Layout";
 import FormCompra from "../pages/FormCompra/FormCompra";
 import Congrats from "../pages/Congrats/Congrats";
 import Error404 from "../pages/404Error/Error404";
+import Verified from "../pages/Verified/Verified";
 
 const Routes = () => {
 	return (
@@ -17,6 +18,7 @@ const Routes = () => {
 						<Route path="/" element={<Home />} />
 						<Route path="login" element={<Login />} />
 						<Route path="register" element={<Register />} />
+						<Route path="verified" element={<Verified />} />
 						<Route path="ConfirmarCompra" element={<FormCompra />} />
 						<Route path="Congrats" element={<Congrats />} />
 						<Route path="*" element={<Error404 />} />

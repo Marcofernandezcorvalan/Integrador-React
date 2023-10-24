@@ -55,7 +55,7 @@ const Register = () => {
 							actions.resetForm();
 							console.log(user);
 							if (user) {
-								navigate("/login");
+								navigate("/verified");
 							}
 						}}
 					>

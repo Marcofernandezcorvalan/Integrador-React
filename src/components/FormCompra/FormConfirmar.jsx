@@ -113,6 +113,7 @@ const FormConfirmar = ({ cartItems }) => {
 									Dirección:
 								</Input>
 								<ButtonContainer>
+									{/* items.length?  */}
 									<Submit disabled={!cartItems.length}>Confirmar</Submit>
 								</ButtonContainer>
 							</Form>

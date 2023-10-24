@@ -21,3 +21,7 @@ export const ContactUsInitialValues = {
 	cellphone: "",
 	email: "",
 };
+
+export const ValidateInitialValues = {
+	code: "",
+};

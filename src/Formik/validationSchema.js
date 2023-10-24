@@ -5,6 +5,7 @@ const RegexForName = /^([^0-9]*)$/;
 const RegexOnlyNum = /^[0-9]+$/;
 const RegexMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const RegexPassw = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+// const RegexValidate = /\d{7}$/;
 
 export const checkoutValidationSchema = Yup.object({
 	name: Yup.string().trim().matches(RegexForName, "No se permiten Números").required("Complete este Campo"),
@@ -40,4 +41,8 @@ export const ContactUsValidationSchema = Yup.object({
 		.matches(RegexOnlyNum, "Solo Números")
 		.matches(Regex, "10 Caracteres Mínimo")
 		.required("Complete este Campo"),
+});
+
+export const ValidateValidationSchema = Yup.object({
+	code: Yup.string().min(7, "Mínimo 7 Caracteres").max(7, "7 Caracteres Máximo").required("Complete este Campo"),
 });

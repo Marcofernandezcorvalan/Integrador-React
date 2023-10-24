@@ -5,13 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import CarritoItem from "./CarritoItem";
 import { useNavigate } from "react-router-dom";
 import { clearCart, toggleCart } from "../../../Redux/carrito/carritoSlice";
-import useRedirectNoUser from "../../Hooks/useRedirectNoUser";
+import { Parraf } from "../../../pages/Verified/Verified";
 
 const Carrito = () => {
 	const hidden = useSelector((state) => state.carrito.hidden);
 	const { cartItems } = useSelector((state) => state.carrito);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const user = useSelector((state) => state.user.actualUser);
 
 	const cartTotal = cartItems.reduce((acc, item) => {
 		return acc + item.precio * item.quantity;
@@ -35,7 +36,7 @@ const Carrito = () => {
 						<Divider />
 						<CarritoTotal>{`U$D ${cartTotal}`}</CarritoTotal>
 						<ButtonCart
-							disabled={!cartItems.length}
+							disabled={!cartItems.length || user === null}
 							onClick={() => {
 								navigate("/ConfirmarCompra");
 								dispatch(toggleCart());
@@ -43,6 +44,9 @@ const Carrito = () => {
 						>
 							Buy
 						</ButtonCart>
+						{user || !cartItems.length ? null : (
+							<Parraf style={{ alignSelf: "center" }}>Para comprar, regístrese</Parraf>
+						)}
 						<ButtonCart onClick={() => dispatch(clearCart())} disabled={!cartItems.length}>
 							Clean
 						</ButtonCart>
