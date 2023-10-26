@@ -23,11 +23,21 @@ export const ProductsContainer = styled.div`
 	}
 `;
 
+export const Loader = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--thirdtext);
+	margin-top: 150px;
+	font-weight: 600;
+`;
+
 const ProductsSection = () => {
 	// let productos = useSelector((state) => state.products.products);
 	const pickedCategory = useSelector((state) => state.categories.pickedCategory);
 	let { products, error } = useSelector((state) => state.products);
 	const dispatch = useDispatch();
+	const loading = useSelector((state) => state.products.loading);
 
 	useEffect(() => {
 		if (!products) {
@@ -62,6 +72,7 @@ const ProductsSection = () => {
 							return <ProductCard {...products} key={products.id} />;
 					  })
 					: error}
+				{loading === true ? <Loader>loading</Loader> : null}
 			</ProductsContainer>
 		</>
 	);

@@ -128,18 +128,25 @@ const Navbar = () => {
 					<LinkContainer>
 						<NavLinkStyled to="/">Home</NavLinkStyled>
 						{actualUser ? (
-							<NavLinkStyled>{actualUser.name}</NavLinkStyled>
+							<NavLinkStyled style={{ color: "lightgreen" }} to="/">
+								{actualUser.name}
+							</NavLinkStyled>
 						) : (
 							<NavLinkStyled to="/login">Login</NavLinkStyled>
 						)}
 						{actualUser ? (
-							<NavLinkStyled> Compras</NavLinkStyled>
+							<NavLinkStyled to="/compras"> Compras</NavLinkStyled>
 						) : (
 							<NavLinkStyled to="/register">Register</NavLinkStyled>
 						)}
 					</LinkContainer>
 					<LinkContainer>
-						{actualUser ? <NavLinkStyled onClick={() => dispatch(logOut())}> Log Out</NavLinkStyled> : null}
+						{actualUser ? (
+							<NavLinkStyled to="/login" onClick={() => dispatch(logOut())}>
+								{" "}
+								Log Out
+							</NavLinkStyled>
+						) : null}
 					</LinkContainer>
 
 					{!hiddenMenu && (
@@ -151,7 +158,13 @@ const Navbar = () => {
 								Home
 							</NavLinkStyled>
 							{actualUser ? (
-								<NavLinkStyled style={{ color: "var(--thirdtext)" }} onClick={() => dispatch(toggleMenuHambur())}>
+								<NavLinkStyled
+									to="/compras"
+									style={{ color: "var(--thirdtext)" }}
+									onClick={() => {
+										dispatch(toggleMenuHambur());
+									}}
+								>
 									Compras
 								</NavLinkStyled>
 							) : (

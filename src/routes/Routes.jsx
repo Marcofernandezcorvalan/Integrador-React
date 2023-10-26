@@ -8,6 +8,7 @@ import FormCompra from "../pages/FormCompra/FormCompra";
 import Congrats from "../pages/Congrats/Congrats";
 import Error404 from "../pages/404Error/Error404";
 import Verified from "../pages/Verified/Verified";
+import Orders from "../pages/Compras/Orders";
 
 const Routes = () => {
 	return (
@@ -20,6 +21,7 @@ const Routes = () => {
 						<Route path="register" element={<Register />} />
 						<Route path="verified" element={<Verified />} />
 						<Route path="ConfirmarCompra" element={<FormCompra />} />
+						<Route path="compras" element={<Orders />} />
 						<Route path="Congrats" element={<Congrats />} />
 						<Route path="*" element={<Error404 />} />
 					</ReactDomRoutes>
