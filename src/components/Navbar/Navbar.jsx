@@ -151,9 +151,7 @@ const Navbar = () => {
 
 					{!hiddenMenu && (
 						<MenuHamburContLinks>
-							<NavLinkStyled style={{ color: "var(--secondarytext)" }}>
-								{actualUser ? `${actualUser.name} ` : null}
-							</NavLinkStyled>
+							<NavLinkStyled style={{ color: "lightgreen" }}>{actualUser ? `${actualUser.name} ` : null}</NavLinkStyled>
 							<NavLinkStyled style={{ color: "var(--thirdtext)" }} onClick={() => dispatch(toggleMenuHambur())} to="/">
 								Home
 							</NavLinkStyled>

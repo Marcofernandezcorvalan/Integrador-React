@@ -95,7 +95,7 @@ const Login = () => {
 						validationSchema={LoginValidationSchema}
 						onSubmit={async (values, actions) => {
 							const user = await loginUser(values.email, values.password);
-							console.log(user);
+							// console.log(user);
 							actions.resetForm();
 							if (user) {
 								dispatch(
