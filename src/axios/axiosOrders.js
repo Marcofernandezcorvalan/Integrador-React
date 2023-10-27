@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../data/constants";
-import { fetchOrders, fetchOrdersFail, fetchOrdersLoading } from "../Redux/orders/ordersSlice";
+import { createOrdersFail, fetchOrders, fetchOrdersFail, fetchOrdersLoading } from "../Redux/orders/ordersSlice";
 
 export const getOrders = async (dispatch, actualUser) => {
 	dispatch(fetchOrdersLoading());
@@ -18,5 +18,21 @@ export const getOrders = async (dispatch, actualUser) => {
 	} catch (error) {
 		console.log(error);
 		dispatch(fetchOrdersFail("Para tener ordenes necesita estar registrado."));
+	}
+};
+
+export const createOrders = async (order, dispatch, actualUser) => {
+	try {
+		const res = await axios.post(`${BASE_URL}orders`, order, {
+			headers: {
+				"x-token": actualUser.token,
+			},
+		});
+		if (res) {
+			getOrders(dispatch, actualUser);
+		}
+	} catch (error) {
+		console.log(error);
+		dispatch(createOrdersFail());
 	}
 };

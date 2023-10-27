@@ -45,7 +45,7 @@ const CardOrders = ({ createdAt, status, total, _id }) => {
 			<OrderCont onClick={(e) => e.preventDefault()}>
 				<TitleCont>
 					<Title>ID: {_id.slice(0, 7)}</Title>
-					<Fecha>Fecha{formatDate(createdAt)}hs</Fecha>
+					<Fecha>Fecha {formatDate(createdAt)}hs</Fecha>
 					<OrderPrice>{total}</OrderPrice>
 				</TitleCont>
 				<OrderStatus status={status} />

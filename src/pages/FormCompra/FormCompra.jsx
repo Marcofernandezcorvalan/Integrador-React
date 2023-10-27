@@ -14,10 +14,13 @@ export const ContainerFormCompra = styled.div`
 const FormCompra = () => {
 	const { cartItems } = useSelector((state) => state.carrito);
 	useRedirectNoUser("/login");
+	const cartTotal = cartItems.reduce((acc, item) => {
+		return acc + item.precio * item.quantity;
+	}, 0);
 	return (
 		<>
 			<ContainerFormCompra>
-				<FormConfirmar cartItems={cartItems} />
+				<FormConfirmar cartItems={cartItems} total={cartTotal} />
 			</ContainerFormCompra>
 		</>
 	);

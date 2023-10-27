@@ -7,8 +7,9 @@ import { checkoutValidationSchema } from "../../Formik/validationSchema";
 import Submit from "../../UI/Submit/Submit";
 import { useNavigate } from "react-router-dom";
 import { ContGeneral } from "../../pages/Login/Login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { clearCart } from "../../Redux/carrito/carritoSlice";
+import { createOrders } from "../../axios/axiosOrders";
 
 export const ContainerFormConfirmar = styled.div`
 	display: flex;
@@ -60,9 +61,11 @@ export const ButtonContainer = styled.div`
 	align-items: center;
 `;
 
-const FormConfirmar = ({ cartItems }) => {
+const FormConfirmar = ({ total }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const { actualUser } = useSelector((state) => state.user);
+	const { cartItems } = useSelector((state) => state.carrito);
 	return (
 		<>
 			<ContGeneral>
@@ -71,10 +74,23 @@ const FormConfirmar = ({ cartItems }) => {
 					<Formik
 						initialValues={CheckoutInitialValues}
 						validationSchema={checkoutValidationSchema}
-						onSubmit={({ resetForm }) => {
-							dispatch(clearCart());
-							navigate("/Congrats");
-							resetForm();
+						onSubmit={async (values) => {
+							const orderData = {
+								items: cartItems,
+								total,
+								shippingDetails: {
+									...values,
+								},
+							};
+
+							try {
+								await createOrders(orderData, dispatch, actualUser);
+								navigate("/Congrats");
+								dispatch(clearCart());
+							} catch (error) {
+								console.log(error);
+								return alert("Error al crear la orden.");
+							}
 						}}
 					>
 						{({ errors }) => (
