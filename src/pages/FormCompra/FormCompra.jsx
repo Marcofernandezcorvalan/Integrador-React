@@ -20,7 +20,7 @@ const FormCompra = () => {
 	return (
 		<>
 			<ContainerFormCompra>
-				<FormConfirmar cartItems={cartItems} total={cartTotal} />
+				<FormConfirmar cartItems={cartItems} cartTotal={cartTotal} />
 			</ContainerFormCompra>
 		</>
 	);

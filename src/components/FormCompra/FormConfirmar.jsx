@@ -61,11 +61,14 @@ export const ButtonContainer = styled.div`
 	align-items: center;
 `;
 
-const FormConfirmar = ({ total }) => {
+const FormConfirmar = ({ cartItems, cartTotal }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const { actualUser } = useSelector((state) => state.user);
-	const { cartItems } = useSelector((state) => state.carrito);
+	// const { cartItems } = useSelector((state) => state.carrito);
+	// const cartTotal = cartItems.reduce((acc, item) => {
+	// 	return acc + item.precio * item.quantity;
+	// }, 0);
 	return (
 		<>
 			<ContGeneral>
@@ -75,21 +78,20 @@ const FormConfirmar = ({ total }) => {
 						initialValues={CheckoutInitialValues}
 						validationSchema={checkoutValidationSchema}
 						onSubmit={async (values) => {
-							const orderData = {
+							const order = {
+								total: cartTotal,
 								items: cartItems,
-								total,
 								shippingDetails: {
 									...values,
 								},
 							};
-
 							try {
-								await createOrders(orderData, dispatch, actualUser);
-								navigate("/Congrats");
+								await createOrders(order, dispatch, actualUser);
+								navigate("/congrats");
 								dispatch(clearCart());
 							} catch (error) {
 								console.log(error);
-								return alert("Error al crear la orden.");
+								alert("Error al crear la orden");
 							}
 						}}
 					>
