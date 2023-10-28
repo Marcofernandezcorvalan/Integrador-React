@@ -11,9 +11,6 @@ export const OrderCont = styled.div`
 	cursor: pointer;
 	background-color: var(--secondbackground);
 	justify-content: space-between;
-	@media screen (max-width: 470px) {
-		width: 80%;
-	}
 `;
 
 export const TitleCont = styled.div`
