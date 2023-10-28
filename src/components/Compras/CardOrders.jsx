@@ -5,11 +5,15 @@ import OrderStatus from "../../UI/orderStatus/OrderStatus";
 export const OrderCont = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	width: 400px;
+	width: 330px;
 	border-radius: 10px;
-	padding: 10px;
+	padding: 20px 30px;
 	cursor: pointer;
+	background-color: var(--secondbackground);
+	justify-content: space-between;
+	@media screen (max-width: 470px) {
+		width: 80%;
+	}
 `;
 
 export const TitleCont = styled.div`
@@ -43,12 +47,12 @@ const CardOrders = ({ createdAt, status, total, _id }) => {
 	return (
 		<>
 			<OrderCont onClick={(e) => e.preventDefault()}>
-				<TitleCont>
-					<Title>ID: {_id.slice(0, 7)}</Title>
-					<Fecha>Fecha {formatDate(createdAt)}hs</Fecha>
-					<OrderPrice>{total}</OrderPrice>
-				</TitleCont>
 				<OrderStatus status={status} />
+				<TitleCont>
+					<Title>ID: {_id.slice(0, 10)}</Title>
+					<Fecha>Fecha {formatDate(createdAt)}hs</Fecha>
+					<OrderPrice>U$D {total}</OrderPrice>
+				</TitleCont>
 			</OrderCont>
 		</>
 	);

@@ -82,7 +82,10 @@ const FormConfirmar = ({ cartItems, cartTotal }) => {
 								total: cartTotal,
 								items: cartItems,
 								shippingDetails: {
-									...values,
+									name: values.name,
+									cellphone: values.cellphone,
+									location: values.location,
+									address: values.address,
 								},
 							};
 							try {
@@ -97,14 +100,14 @@ const FormConfirmar = ({ cartItems, cartTotal }) => {
 					>
 						{({ errors }) => (
 							<Form>
-								<Input isError={errors.name} htmlFor="nombre" type="text" id="name" placeholder="Su Nombre" name="name">
+								<Input isError={errors.name} htmlFor="name" type="text" id="name" placeholder="Su Nombre" name="name">
 									Nombre:
 								</Input>
 								<Input
 									isError={errors.cellphone}
-									htmlFor="celular"
+									htmlFor="cellphone"
 									type="text"
-									id="celular"
+									id="cellphone"
 									placeholder="Número Personal"
 									name="cellphone"
 								>
@@ -112,9 +115,9 @@ const FormConfirmar = ({ cartItems, cartTotal }) => {
 								</Input>
 								<Input
 									isError={errors.location}
-									htmlFor="localidad"
+									htmlFor="location"
 									type="text"
-									id="localidad"
+									id="location"
 									placeholder="Su Localidad"
 									name="location"
 								>
@@ -122,9 +125,9 @@ const FormConfirmar = ({ cartItems, cartTotal }) => {
 								</Input>
 								<Input
 									isError={errors.address}
-									htmlFor="direccion"
+									htmlFor="address"
 									type="text"
-									id="direccion"
+									id="address"
 									placeholder="Su Dirección"
 									name="address"
 								>

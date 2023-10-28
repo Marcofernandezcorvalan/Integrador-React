@@ -10,7 +10,7 @@ import {
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../Redux/carrito/carritoSlice";
 
-const ProductCard = ({ img, name, precio, id }) => {
+const ProductCard = ({ img, name, price, id }) => {
 	const dispatch = useDispatch();
 
 	return (
@@ -19,8 +19,8 @@ const ProductCard = ({ img, name, precio, id }) => {
 				<ProductsCardsImg src={img} alt={name} />
 				<ProductsCardTitle>{name}</ProductsCardTitle>
 				<ProductsCardSecondCont>
-					<ProductsCardP>U$D {precio}</ProductsCardP>
-					<ProductsCardButton onClick={() => dispatch(addProduct({ img, name, precio, id }))}>Buy</ProductsCardButton>
+					<ProductsCardP>U$D {price}</ProductsCardP>
+					<ProductsCardButton onClick={() => dispatch(addProduct({ img, name, price, id }))}>Buy</ProductsCardButton>
 				</ProductsCardSecondCont>
 			</ProductsContCards>
 		</>

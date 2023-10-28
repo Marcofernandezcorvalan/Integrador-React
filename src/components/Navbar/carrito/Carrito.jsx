@@ -5,7 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import CarritoItem from "./CarritoItem";
 import { useNavigate } from "react-router-dom";
 import { clearCart, toggleCart } from "../../../Redux/carrito/carritoSlice";
-import { Parraf } from "../../../pages/Verified/Verified";
+import styled from "styled-components";
+
+export const NoUserSpan = styled.span`
+	font-size: 12px;
+	align-self: center;
+	color: rgba(183, 42, 42, 0.972);
+`;
 
 const Carrito = () => {
 	const hidden = useSelector((state) => state.carrito.hidden);
@@ -15,7 +21,7 @@ const Carrito = () => {
 	const user = useSelector((state) => state.user.actualUser);
 
 	const cartTotal = cartItems.reduce((acc, item) => {
-		return acc + item.precio * item.quantity;
+		return acc + item.price * item.quantity;
 	}, 0);
 
 	return (
@@ -35,6 +41,7 @@ const Carrito = () => {
 						</CarritoCardsCont>
 						<Divider />
 						<CarritoTotal>{`U$D ${cartTotal}`}</CarritoTotal>
+						{user || !cartItems.length ? null : <NoUserSpan>Para comprar, regístrese</NoUserSpan>}
 						<ButtonCart
 							disabled={!cartItems.length || user === null}
 							onClick={() => {
@@ -44,9 +51,7 @@ const Carrito = () => {
 						>
 							Buy
 						</ButtonCart>
-						{user || !cartItems.length ? null : (
-							<Parraf style={{ alignSelf: "center" }}>Para comprar, regístrese</Parraf>
-						)}
+
 						<ButtonCart onClick={() => dispatch(clearCart())} disabled={!cartItems.length}>
 							Clean
 						</ButtonCart>

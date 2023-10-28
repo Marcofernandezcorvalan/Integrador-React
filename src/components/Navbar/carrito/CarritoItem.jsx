@@ -73,7 +73,7 @@ export const RestSum = styled.span`
 	}
 `;
 
-const CarritoItem = ({ img, name, precio, id, quantity }) => {
+const CarritoItem = ({ img, name, price, id, quantity }) => {
 	const dispatch = useDispatch();
 
 	return (
@@ -82,12 +82,12 @@ const CarritoItem = ({ img, name, precio, id, quantity }) => {
 				<ItemImg src={img} alt={name} />
 				<ItemInfo>
 					<ItemTitle>{name}</ItemTitle>
-					<ItemPrecio>{`U$D ${precio}`}</ItemPrecio>
+					<ItemPrecio>{`U$D ${price}`}</ItemPrecio>
 				</ItemInfo>
 				<ItemCantidad>
 					<RestSum onClick={() => dispatch(removeProduct(id))}>-</RestSum>
 					<CantidadNum>{quantity}</CantidadNum>
-					<RestSum onClick={() => dispatch(addProduct({ img, name, precio, id, quantity }))}>+</RestSum>
+					<RestSum onClick={() => dispatch(addProduct({ img, name, price, id, quantity }))}>+</RestSum>
 				</ItemCantidad>
 			</CartItem>
 		</>

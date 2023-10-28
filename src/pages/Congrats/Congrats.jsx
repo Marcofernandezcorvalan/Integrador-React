@@ -29,7 +29,7 @@ const Congrats = () => {
 	return (
 		<>
 			<ContGeneral>
-				<IconContainer onClick={() => navigate("/")}>
+				<IconContainer onClick={() => navigate("/compras")}>
 					<AiOutlineCheckCircle />
 				</IconContainer>
 				<TitleCongrats>Disfrute su Compra!!!</TitleCongrats>

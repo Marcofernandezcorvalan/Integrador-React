@@ -26,7 +26,7 @@ const Orders = () => {
 
 	return (
 		<>
-			<ContGeneral>
+			<ContGeneral style={{ gap: "40px" }}>
 				<TitleGen>Tus Ordenes</TitleGen>
 				<OrdersSection />
 			</ContGeneral>

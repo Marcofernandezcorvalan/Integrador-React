@@ -8,7 +8,8 @@ export const OrdersSectionCont = styled.div`
 	align-items: center;
 	justify-content: center;
 	max-width: 1300px;
-	gap: 20px;
+	gap: 15px;
+	flex-wrap: wrap;
 `;
 
 export const ContLoad = styled.span`

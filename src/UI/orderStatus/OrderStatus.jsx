@@ -12,9 +12,9 @@ export const StatusCont = styled.div`
 
 export const Status = styled.span`
 	text-align: center;
-	font-weight: 600;
-	padding: 5px;
+	font-weight: 800;
 	color: var(--thirdtext);
+	font-size: 20px;
 `;
 
 const OrderStatus = ({ status }) => {

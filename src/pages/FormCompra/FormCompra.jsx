@@ -15,7 +15,7 @@ const FormCompra = () => {
 	const { cartItems } = useSelector((state) => state.carrito);
 	useRedirectNoUser("/login");
 	const cartTotal = cartItems.reduce((acc, item) => {
-		return acc + item.precio * item.quantity;
+		return acc + item.price * item.quantity;
 	}, 0);
 	return (
 		<>
