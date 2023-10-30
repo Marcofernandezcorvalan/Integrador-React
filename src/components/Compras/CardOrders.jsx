@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import OrderStatus from "../../UI/orderStatus/OrderStatus";
+import { useSelector } from "react-redux";
 
 export const OrderCont = styled.div`
 	display: flex;
@@ -41,13 +42,13 @@ const CardOrders = ({ createdAt, status, total, _id }) => {
 		// const horaLegible = hora?.split(":").slice(0, 2).join(":"); ${horaLegible}
 		return `${fechaLegible} `;
 	};
-
+	const { actualUser } = useSelector((state) => state.user);
 	return (
 		<>
 			<OrderCont onClick={(e) => e.preventDefault()}>
 				<OrderStatus status={status} />
 				<TitleCont>
-					{/* <Title style={{ color: "lightgreen" }}>{shippingDetails?.name}</Title> */}
+					<Title style={{ color: "lightgreen" }}>{actualUser.name}</Title>
 					<Title>ID: {_id.slice(0, 10)}</Title>
 					<Fecha>Fecha {formatDate(createdAt)}</Fecha>
 					<OrderPrice>U$D {total}</OrderPrice>
