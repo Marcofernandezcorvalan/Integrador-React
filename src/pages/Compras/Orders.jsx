@@ -1,14 +1,24 @@
 import React, { useEffect } from "react";
-import { ContGeneral, TitleGen } from "../Login/Login";
+import { TitleGen } from "../Login/Login";
 import styled from "styled-components";
 import OrdersSection from "../../components/Compras/OrdersSection";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getOrders } from "../../axios/axiosOrders";
 import { clearError, fetchOrdersFail } from "../../Redux/orders/ordersSlice";
 
+export const OrdersCont = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+	@media screen and (max-width: 674px) {
+		margin-top: 80px;
+	}
+`;
+
 const Orders = () => {
-	const navigate = useNavigate();
 	const { orders, error } = useSelector((state) => state.orders);
 	const dispatch = useDispatch();
 	const actualUser = useSelector((state) => state.user.actualUser);
@@ -26,10 +36,10 @@ const Orders = () => {
 
 	return (
 		<>
-			<ContGeneral style={{ gap: "40px" }}>
+			<OrdersCont style={{ gap: "40px", height: "none" }}>
 				<TitleGen>Tus Ordenes</TitleGen>
 				<OrdersSection />
-			</ContGeneral>
+			</OrdersCont>
 		</>
 	);
 };
