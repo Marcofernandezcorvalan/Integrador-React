@@ -136,9 +136,7 @@ const Navbar = () => {
 							<NavLinkStyled to="/login">Login</NavLinkStyled>
 						)}
 						{actualUser ? (
-							<NavLinkStyled to="/compras" onClick={() => dispatch(getOrders(dispatch, actualUser))}>
-								Compras
-							</NavLinkStyled>
+							<NavLinkStyled to="/compras">Compras</NavLinkStyled>
 						) : (
 							<NavLinkStyled to="/register">Register</NavLinkStyled>
 						)}
@@ -163,7 +161,6 @@ const Navbar = () => {
 									to="/compras"
 									style={{ color: "var(--thirdtext)" }}
 									onClick={() => {
-										dispatch(getOrders(dispatch, actualUser));
 										dispatch(toggleMenuHambur());
 									}}
 								>
