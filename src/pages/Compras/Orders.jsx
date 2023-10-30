@@ -14,7 +14,8 @@ export const OrdersCont = styled.div`
 	flex-direction: column;
 	height: 100vh;
 	@media screen and (max-width: 674px) {
-		margin-top: 80px;
+		margin-top: 100px;
+		margin-bottom: 100px;
 	}
 `;
 
