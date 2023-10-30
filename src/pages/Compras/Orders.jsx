@@ -14,7 +14,7 @@ const Orders = () => {
 	const actualUser = useSelector((state) => state.user.actualUser);
 
 	useEffect(() => {
-		if (!orders) {
+		if (orders === null) {
 			getOrders(dispatch, actualUser);
 		}
 		if (!actualUser?.token) {

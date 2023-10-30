@@ -8,6 +8,7 @@ import MenuIcon from "./MenuHambur/MenuIcon";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenuHambur } from "../../Redux/MenuHamburSlice/menuHamburSlice";
 import { logOut } from "../../Redux/user/userSlice";
+import { getOrders } from "../../axios/axiosOrders";
 
 export const zoomAnimation = keyframes`
 
@@ -135,7 +136,9 @@ const Navbar = () => {
 							<NavLinkStyled to="/login">Login</NavLinkStyled>
 						)}
 						{actualUser ? (
-							<NavLinkStyled to="/compras"> Compras</NavLinkStyled>
+							<NavLinkStyled to="/compras" onClick={() => dispatch(getOrders(dispatch, actualUser))}>
+								Compras
+							</NavLinkStyled>
 						) : (
 							<NavLinkStyled to="/register">Register</NavLinkStyled>
 						)}
@@ -160,6 +163,7 @@ const Navbar = () => {
 									to="/compras"
 									style={{ color: "var(--thirdtext)" }}
 									onClick={() => {
+										dispatch(getOrders(dispatch, actualUser));
 										dispatch(toggleMenuHambur());
 									}}
 								>
@@ -172,13 +176,14 @@ const Navbar = () => {
 							)}
 							{actualUser ? (
 								<NavLinkStyled
+									to="/login"
 									style={{ color: "var(--thirdtext)" }}
 									onClick={() => {
 										dispatch(logOut());
 										dispatch(toggleMenuHambur());
 									}}
 								>
-									Log Out{" "}
+									Log Out
 								</NavLinkStyled>
 							) : (
 								<NavLinkStyled onClick={() => dispatch(toggleMenuHambur())} to="/register">

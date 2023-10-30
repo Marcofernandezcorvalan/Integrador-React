@@ -7,7 +7,7 @@ export const OrderCont = styled.div`
 	align-items: center;
 	width: 330px;
 	border-radius: 10px;
-	padding: 20px 30px;
+	padding: 15px 20px;
 	cursor: pointer;
 	background-color: var(--secondbackground);
 	justify-content: space-between;
@@ -30,15 +30,16 @@ export const Fecha = styled.p`
 export const OrderPrice = styled.span`
 	font-weight: 600;
 	font-size: 15px;
+	color: var(--secondarytext);
 `;
 
 const CardOrders = ({ createdAt, status, total, _id }) => {
 	const formatDate = (date) => {
 		const fecha = date?.split("T")[0];
 		const fechaLegible = fecha?.split("-").reverse().join("/");
-		const hora = date?.split("T")[1].split(".")[0];
-		const horaLegible = hora?.split(":").slice(0, 2).join(":");
-		return `${fechaLegible} ${horaLegible}`;
+		// const hora = date?.split("T")[1].split(".")[0];
+		// const horaLegible = hora?.split(":").slice(0, 2).join(":"); ${horaLegible}
+		return `${fechaLegible} `;
 	};
 
 	return (
@@ -46,8 +47,9 @@ const CardOrders = ({ createdAt, status, total, _id }) => {
 			<OrderCont onClick={(e) => e.preventDefault()}>
 				<OrderStatus status={status} />
 				<TitleCont>
+					{/* <Title style={{ color: "lightgreen" }}>{shippingDetails?.name}</Title> */}
 					<Title>ID: {_id.slice(0, 10)}</Title>
-					<Fecha>Fecha {formatDate(createdAt)}hs</Fecha>
+					<Fecha>Fecha {formatDate(createdAt)}</Fecha>
 					<OrderPrice>U$D {total}</OrderPrice>
 				</TitleCont>
 			</OrderCont>

@@ -26,7 +26,7 @@ const OrderStatus = ({ status }) => {
 				</Status>
 			)}
 			{status === "pending" && (
-				<Status>
+				<Status style={{ color: "yellow" }}>
 					<BiTime />
 				</Status>
 			)}
